@@ -1,0 +1,28 @@
+/***  HEADER STYLES ***/
+.header {
+  background: none !important;
+  padding: 0 20px;
+  line-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: var(--border-thin);
+}
+
+.icon {
+  font-size: 20px;
+}
+
+.trigger {
+  padding: 0 4px;
+  font-size: 18px;
+  /* line-height: 64px; */
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.trigger:hover {
+  color: var(--primary-light);
+}
+
+/***  HEADER STYLES END ***/

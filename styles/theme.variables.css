@@ -1,0 +1,16 @@
+:root {
+  /* Themes */
+  --primary-main: #4e24e1;
+  --primary-light: #5d38e3;
+  --accent-main: hsl(23, 100%, 43%);
+  --accent-light: hsl(21, 84%, 62%);
+  --black: #191136;
+  --background-main: #f5f4fe68;
+  --background-1: #fbfaff;
+  --background-2: #f5f6fa;
+  --error: #da0051;
+  --white: #ffffff;
+
+  /* Borders */
+  --border-thin: 0.8px solid rgb(228, 228, 228);
+}

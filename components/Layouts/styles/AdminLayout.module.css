@@ -1,0 +1,19 @@
+.box_bkg {
+  /* background: #f6f4f5 !important; */
+  /* background: var(--background-1) !important; */
+}
+
+.layout_container {
+  min-height: 100vh;
+}
+
+.main_layout,
+.main_layout > * {
+  background: none;
+  background: var(--background-2);
+  /* background: transparent; */
+}
+
+/***  CONTENT STYLES ***/
+
+/***  CONTENT STYLES END ***/

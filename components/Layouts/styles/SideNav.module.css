@@ -1,0 +1,20 @@
+/***  SIDE NAV STYLES ***/
+.logo {
+  /* height: 32px; */
+  margin: 16px;
+  /* background: rgb(214, 214, 214, 0.5); */
+}
+
+.sider_nav,
+.sider_nav_menu {
+  background: none;
+}
+
+.sider_nav {
+  min-height: 100vh;
+  background: var(--background-main);
+  backdrop-filter: blur(90px);
+  border-right: var(--border-thin);
+}
+
+/***  SIDE NAV STYLES END ***/

@@ -8,8 +8,8 @@ const withAntdLess = require('next-plugin-antd-less');
 module.exports = withAntdLess({
   reactStrictMode: true,
 
-  /* // You can directly change the antd less variables here
-  modifyVars: { "@primary-color": "#f200ff" }, */
+  // You can directly change the antd less variables here
+  // modifyVars: { '@primary-color': '#f200ff' },
 
   // Or better still you can specify a path to a file
   lessVarsFilePath: './styles/variables.less',

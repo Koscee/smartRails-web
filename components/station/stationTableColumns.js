@@ -1,8 +1,8 @@
-import { Badge, Button, Popconfirm, Space } from 'antd';
+import { Badge } from 'antd';
+import { DeleteButton, EditButton, RowButtonWrapper } from '../buttons';
 
 export default function defineStationTableColumns(
   stationsList,
-  cities,
   showEditModal,
   setSelectedItem,
   handleDelete
@@ -91,26 +91,16 @@ export default function defineStationTableColumns(
       dataIndex: 'action',
       render: (_, record) =>
         stationsList.length >= 1 ? (
-          <Space size="large">
-            <Button
-              type="link"
-              style={{ padding: 0 }}
+          <RowButtonWrapper size="large">
+            <EditButton
               onClick={() => {
                 setSelectedItem(record);
                 showEditModal();
               }}
-            >
-              Edit
-            </Button>
-            <Popconfirm
-              title="Sure to delete?"
-              onConfirm={() => handleDelete(record._id)}
-            >
-              <Button type="link" style={{ padding: 0 }}>
-                Delete
-              </Button>
-            </Popconfirm>
-          </Space>
+            />
+
+            <DeleteButton onConfirm={() => handleDelete(record._id)} />
+          </RowButtonWrapper>
         ) : null,
     },
   ];

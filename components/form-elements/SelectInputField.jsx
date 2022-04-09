@@ -12,6 +12,7 @@ function SelectInputField({
   rules,
   showSearch,
   filterOption,
+  onChange,
   children,
   otherProps,
 }) {
@@ -28,6 +29,7 @@ function SelectInputField({
         placeholder={placeholder}
         showSearch={showSearch}
         filterOption={filterOption}
+        onChange={onChange}
         {...otherProps}
       >
         {children}

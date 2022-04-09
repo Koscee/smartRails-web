@@ -1,16 +1,16 @@
 import React, { useState, useContext } from 'react';
 import { Table } from 'antd';
-import { StationContext } from '../../contexts/StationContex';
-import defineStationTableColumns from './stationTableColumns';
-import AddStationForm from './AddStationForm';
-import UpdateStationForm from './UpdateStationForm';
-import { deleteStation } from '../../actions/stationActions';
 import CustomModal from '../CustomModal';
+import UpdateRouteForm from './UpdateRouteForm';
+import AddRouteForm from './AddRouteForm';
+import defineRouteTableColumns from './routeTableColums';
+import { RouteContext } from '../../contexts/RouteContex';
+import { deleteRoute } from '../../actions/routeActions';
 import { AddButton } from '../buttons';
 import LoadingSpinner from '../LoadingSpinner';
 
-function StationsList() {
-  const { stations, cities, dispatch } = useContext(StationContext);
+function RoutesList() {
+  const { routes, stations, dispatch } = useContext(RouteContext);
 
   const [addModalVisible, setAddModalVisible] = useState(false);
   const [editModalVisible, setEditModalVisible] = useState(false);
@@ -36,47 +36,46 @@ function StationsList() {
 
   const handleDelete = (id) => {
     console.log(id);
-    deleteStation(dispatch, id);
-    // stations.filter((item) => item._id !== id);
+    deleteRoute(dispatch, id);
   };
 
-  const columns = defineStationTableColumns(
+  const columns = defineRouteTableColumns(
+    routes,
     stations,
     showEditModal,
     setSelectedItem,
     handleDelete
   );
 
-  return stations?.length < 1 ? (
+  return routes?.length < 1 ? (
     <LoadingSpinner />
   ) : (
     <div>
-      <AddButton text="Add station" onClick={showAddModal} />
+      <AddButton text="Add route" onClick={showAddModal} />
 
       <CustomModal
-        title="Add New Station"
+        title="Add New Route"
         visible={addModalVisible}
         onCancel={onAddFormModalCancel}
       >
-        <AddStationForm cities={cities} />
+        <AddRouteForm stations={stations} />
       </CustomModal>
 
       <CustomModal
-        title="Update Station"
+        title="Update Route"
         visible={editModalVisible}
         onCancel={onEditFormModalCancel}
       >
-        <UpdateStationForm
-          stationId={selectedItem?._id}
-          cities={cities}
-          closeForm={setEditModalVisible}
+        <UpdateRouteForm
+          routeId={selectedItem?._id}
+          stations={stations}
+          closeForm={() => setEditModalVisible(false)}
         />
       </CustomModal>
 
       <Table
         bordered
-        size="middle"
-        dataSource={stations}
+        dataSource={routes}
         columns={columns}
         scroll={{ y: 350 }}
         rowKey={(record) => record._id}
@@ -85,4 +84,4 @@ function StationsList() {
   );
 }
 
-export default StationsList;
+export default RoutesList;

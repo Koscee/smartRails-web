@@ -1,7 +1,6 @@
 import { ADD_STATION, DELETE_STATION, UPDATE_STATION } from '../actions/types';
 
-// const initialStation = {};
-// const initialStations = [];
+// const initialStations = [/** stations data fetched from the backend */];
 
 export default function stationReducer(state, action) {
   switch (action.type) {

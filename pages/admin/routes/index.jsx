@@ -1,13 +1,17 @@
 import React from 'react';
+import { getRoutes } from '../../../actions/routeActions';
 import { AdminLayout, MainContent } from '../../../components/Layouts';
+import { RoutesList } from '../../../components/route';
+import RouteProvider from '../../../contexts/RouteContex';
+import smartrailsApi from '../../../utils/apiConfig';
 
-function RoutesPage() {
+function RoutesPage({ routesList, stations }) {
   return (
-    <MainContent title="Routes">
-      <div>
-        <h1>List of all Routes</h1>
-      </div>
-    </MainContent>
+    <RouteProvider routesList={routesList} stations={stations}>
+      <MainContent title="Routes">
+        <RoutesList />
+      </MainContent>
+    </RouteProvider>
   );
 }
 
@@ -16,3 +20,13 @@ export default RoutesPage;
 RoutesPage.getLayout = function getLayout(page) {
   return <AdminLayout>{page}</AdminLayout>;
 };
+
+export async function getServerSideProps() {
+  const routesList = await getRoutes();
+  const res = await smartrailsApi.get('/api/stations');
+  const stations = res.data;
+
+  return {
+    props: { routesList, stations },
+  };
+}

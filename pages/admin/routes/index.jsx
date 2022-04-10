@@ -2,7 +2,7 @@ import React from 'react';
 import { getRoutes } from '../../../actions/routeActions';
 import { AdminLayout, MainContent } from '../../../components/Layouts';
 import { RoutesList } from '../../../components/route';
-import RouteProvider from '../../../contexts/RouteContex';
+import { RouteProvider } from '../../../contexts';
 import smartrailsApi from '../../../utils/apiConfig';
 
 function RoutesPage({ routesList, stations }) {

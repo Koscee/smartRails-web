@@ -2,29 +2,25 @@ import { Input } from 'antd';
 import React from 'react';
 import FormItem from './FormItem';
 
-function InputField({
+function TextAreaInput({
   name,
   label,
-  width,
-  rules,
   fieldTooltip,
-  type,
+  rules,
   placeholder,
-  suffix,
   otherProps,
 }) {
   return (
     <FormItem
       label={label}
       name={name}
-      width={width}
       tooltip={fieldTooltip}
       rules={rules}
       {...otherProps}
     >
-      <Input placeholder={placeholder} type={type} suffix={suffix} />
+      <Input.TextArea placeholder={placeholder} />
     </FormItem>
   );
 }
 
-export default InputField;
+export default TextAreaInput;

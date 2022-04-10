@@ -57,19 +57,20 @@ export default function defineRouteTableColumns(
     },
 
     {
-      title: 'Total Distance',
+      title: 'Total Distance (km)',
       dataIndex: 'total_dist',
       align: 'right',
-      render: (text) => <span>{`${text}km`}</span>,
+      render: (text) => <span>{text}</span>,
       sorter: (a, b) => a.total_dist - b.total_dist,
     },
 
     {
       title: 'Action',
       dataIndex: 'action',
+      width: 110,
       render: (_, record) =>
         routesList?.length >= 1 ? (
-          <RowButtonWrapper size="large">
+          <RowButtonWrapper size="middle">
             <EditButton
               onClick={() => {
                 setSelectedItem(record);

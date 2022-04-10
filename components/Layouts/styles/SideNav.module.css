@@ -17,4 +17,11 @@
   border-right: var(--border-thin);
 }
 
+.sider_nav_submenu > ul {
+  background: var(--background-main-2) !important;
+}
+.sider_nav_submenu > ul > * {
+  padding-left: 38px !important;
+}
+
 /***  SIDE NAV STYLES END ***/

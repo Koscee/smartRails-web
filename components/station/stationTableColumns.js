@@ -89,9 +89,10 @@ export default function defineStationTableColumns(
     {
       title: 'Action',
       dataIndex: 'action',
+      width: 110,
       render: (_, record) =>
         stationsList.length >= 1 ? (
-          <RowButtonWrapper size="large">
+          <RowButtonWrapper size="middle">
             <EditButton
               onClick={() => {
                 setSelectedItem(record);

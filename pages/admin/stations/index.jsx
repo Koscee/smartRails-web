@@ -2,7 +2,7 @@ import React from 'react';
 import { getStations } from '../../../actions/stationActions';
 import { AdminLayout, MainContent } from '../../../components/Layouts';
 import { StationsList } from '../../../components/station';
-import StationProvider from '../../../contexts/StationContex';
+import { StationProvider } from '../../../contexts';
 import smartrailsApi from '../../../utils/apiConfig';
 
 function StationsPage({ stationsList, cities }) {

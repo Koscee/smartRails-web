@@ -10,8 +10,10 @@ function InputField({
   fieldTooltip,
   type,
   placeholder,
+  prefix,
   suffix,
-  otherProps,
+  onChange,
+  ...otherProps
 }) {
   return (
     <FormItem
@@ -22,7 +24,13 @@ function InputField({
       rules={rules}
       {...otherProps}
     >
-      <Input placeholder={placeholder} type={type} suffix={suffix} />
+      <Input
+        placeholder={placeholder}
+        type={type}
+        prefix={prefix}
+        suffix={suffix}
+        onChange={onChange}
+      />
     </FormItem>
   );
 }

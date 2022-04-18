@@ -8,7 +8,7 @@ function TimeRangePicker({
   format,
   onTimeChange,
   timeProps,
-  otherProps,
+  ...otherProps
 }) {
   return (
     <FormItem label={label} name={name} {...otherProps}>

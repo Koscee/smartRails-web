@@ -1,15 +1,25 @@
+import Icon, {
+  AccountBookOutlined,
+  InsertRowRightOutlined,
+  LayoutOutlined,
+  NodeIndexOutlined,
+  ScheduleOutlined,
+  UsergroupAddOutlined,
+} from '@ant-design/icons';
+import TrainSvg from '../../public/assets/train-round.svg';
+
 const sideNavMenuItems = [
   {
     key: '1',
     text: 'Dashboard',
     href: '/admin/dashboard',
-    icon: '',
+    icon: <LayoutOutlined />,
   },
   {
     key: '2',
     text: 'Trains',
     // href: '/admin/trains',
-    icon: '',
+    icon: <Icon component={TrainSvg} />,
     children: [
       {
         key: '2.1',
@@ -28,31 +38,31 @@ const sideNavMenuItems = [
     key: '3',
     text: 'Schedules',
     href: '/admin/schedules',
-    icon: '',
+    icon: <ScheduleOutlined />,
   },
   {
     key: '4',
     text: 'Routes',
     href: '/admin/routes',
-    icon: '',
+    icon: <NodeIndexOutlined />,
   },
   {
     key: '5',
     text: 'Stations',
     href: '/admin/stations',
-    icon: '',
+    icon: <InsertRowRightOutlined />,
   },
   {
     key: '6',
     text: 'Bookings',
     href: '/admin/bookings',
-    icon: '',
+    icon: <AccountBookOutlined />,
   },
   {
     key: '7',
     text: 'Passengers',
     href: '/admin/passengers',
-    icon: '',
+    icon: <UsergroupAddOutlined />,
   },
 ];
 

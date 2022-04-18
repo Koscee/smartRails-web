@@ -18,3 +18,10 @@ export const GET_TRAIN_TYPE = 'GET_TRAIN_TYPE';
 export const GET_TRAIN_TYPES = 'GET_TRAIN_TYPES';
 export const UPDATE_TRAIN_TYPE = 'UPDATE_TRAIN_TYPE';
 export const DELETE_TRAIN_TYPE = 'DELETE_TRAIN_TYPE';
+
+// Types for train actions
+export const ADD_TRAIN = 'ADD_TRAIN';
+export const GET_TRAIN = 'GET_TRAIN';
+export const GET_TRAINS = 'GET_TRAINS';
+export const UPDATE_TRAIN = 'UPDATE_TRAIN';
+export const DELETE_TRAIN = 'DELETE_TRAIN';

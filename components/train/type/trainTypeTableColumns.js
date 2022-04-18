@@ -53,10 +53,10 @@ export default function defineTrainTypeTableColumns(
     {
       title: 'Rail Type',
       dataIndex: 'rail_type',
-      filters: [
-        { text: <span>High speed</span>, value: 'High speed' },
-        { text: <span>Conventional</span>, value: 'Conventional' },
-      ],
+      filters: ['High speed', 'Conventional'].map((item) => ({
+        text: <span>{item}</span>,
+        value: item,
+      })),
       onFilter: (value, record) => record.rail_type.includes(value),
     },
 

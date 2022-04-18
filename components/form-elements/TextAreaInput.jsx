@@ -8,7 +8,7 @@ function TextAreaInput({
   fieldTooltip,
   rules,
   placeholder,
-  otherProps,
+  ...otherProps
 }) {
   return (
     <FormItem

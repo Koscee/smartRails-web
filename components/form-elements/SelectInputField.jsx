@@ -6,7 +6,6 @@ function SelectInputField({
   label,
   name,
   placeholder,
-  mode,
   fieldTooltip,
   labelHasColon,
   rules,
@@ -14,7 +13,9 @@ function SelectInputField({
   filterOption,
   onChange,
   children,
-  otherProps,
+  itemStyle,
+  style,
+  ...otherProps
 }) {
   return (
     <FormItem
@@ -23,13 +24,14 @@ function SelectInputField({
       tooltip={fieldTooltip}
       colon={labelHasColon}
       rules={rules}
+      style={itemStyle}
     >
       <Select
-        mode={mode}
         placeholder={placeholder}
         showSearch={showSearch}
         filterOption={filterOption}
         onChange={onChange}
+        style={style}
         {...otherProps}
       >
         {children}

@@ -41,7 +41,7 @@ function TrainTypeFormFields({ defaultRailType }) {
       <InputGroupField label="Speed" required>
         <InputField
           name="max_speed"
-          placeholder="maximum speed"
+          placeholder="maximum"
           type="number"
           width="50%"
           suffix="km/h"
@@ -49,7 +49,7 @@ function TrainTypeFormFields({ defaultRailType }) {
         />
         <InputField
           name="min_speed"
-          placeholder="minimum speed"
+          placeholder="minimum"
           type="number"
           width="50%"
           suffix="km/h"
@@ -79,7 +79,7 @@ function TrainTypeFormFields({ defaultRailType }) {
         name="seat_types"
         fieldTooltip="Multiple seat types can be selected"
         mode="multiple"
-        placeholder="select the lists to stops"
+        placeholder="select seat types"
         rules={[{ required: true, message: 'Please select seat types!' }]}
       >
         {seatTypes.map((seatType) => (

@@ -2,25 +2,19 @@ import React from 'react';
 import { Form } from 'antd';
 
 function FormItem({
-  width,
   label,
   name,
+  width,
   rules,
-  tooltip,
-  colon,
-  required,
   style,
   children,
-  otherProps,
+  ...otherProps
 }) {
   return (
     <Form.Item
       label={label}
       name={name}
       rules={rules}
-      tooltip={tooltip}
-      colon={colon}
-      required={rules || required}
       style={{ width, ...style }}
       {...otherProps}
     >

@@ -63,6 +63,7 @@ function SideNavMenu() {
           <SubMenu
             key={item.key}
             title={item.text}
+            icon={item.icon}
             className={styles.sider_nav_submenu}
           >
             {item.children.map((subItem) => (
@@ -72,7 +73,7 @@ function SideNavMenu() {
             ))}
           </SubMenu>
         ) : (
-          <Menu.Item key={item.key}>
+          <Menu.Item key={item.key} icon={item.icon}>
             <Link href={item.href}>{item.text}</Link>
           </Menu.Item>
         )

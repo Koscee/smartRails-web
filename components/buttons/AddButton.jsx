@@ -1,17 +1,14 @@
-import { Button } from 'antd';
 import React from 'react';
+import CustomButton from './CustomButton';
 
-function AddButton({ onClick, text }) {
+function AddButton({ onClick, text, ...otherProps }) {
   return (
-    <Button
-      onClick={onClick}
+    <CustomButton
       type="primary"
-      style={{
-        marginBottom: 16,
-      }}
-    >
-      {text}
-    </Button>
+      text={text}
+      onClick={onClick}
+      {...otherProps}
+    />
   );
 }
 

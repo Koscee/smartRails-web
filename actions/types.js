@@ -25,3 +25,10 @@ export const GET_TRAIN = 'GET_TRAIN';
 export const GET_TRAINS = 'GET_TRAINS';
 export const UPDATE_TRAIN = 'UPDATE_TRAIN';
 export const DELETE_TRAIN = 'DELETE_TRAIN';
+
+// Types for schedule actions
+export const ADD_SCHEDULE = 'ADD_SCHEDULE';
+export const GET_SCHEDULE = 'GET_SCHEDULE';
+export const GET_SCHEDULES = 'GET_SCHEDULES';
+export const UPDATE_SCHEDULE = 'UPDATE_SCHEDULE';
+export const DELETE_SCHEDULE = 'DELETE_SCHEDULE';

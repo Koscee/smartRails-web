@@ -1,12 +1,11 @@
 import React from 'react';
 import { AdminLayout, MainContent } from '../../../components/Layouts';
+import { SchedulesList } from '../../../components/schedule';
 
 function SchedulesPage() {
   return (
     <MainContent title="Schedules">
-      <div>
-        <h1>List of train Schedules</h1>
-      </div>
+      <SchedulesList />
     </MainContent>
   );
 }

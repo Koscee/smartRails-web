@@ -51,7 +51,7 @@ function StationsList() {
     <LoadingSpinner />
   ) : (
     <div>
-      <AddButton text="Add station" onClick={showAddModal} />
+      <AddButton text="Add Station" onClick={showAddModal} />
 
       <CustomModal
         title="Add New Station"

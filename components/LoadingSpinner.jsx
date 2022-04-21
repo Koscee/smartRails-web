@@ -12,7 +12,7 @@ function LoadingSpinner() {
         justifyContent: 'center',
       }}
     >
-      <Spin />
+      <Spin tip="Loading..." />
     </div>
   );
 }

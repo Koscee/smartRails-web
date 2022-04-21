@@ -32,3 +32,10 @@ export const GET_SCHEDULE = 'GET_SCHEDULE';
 export const GET_SCHEDULES = 'GET_SCHEDULES';
 export const UPDATE_SCHEDULE = 'UPDATE_SCHEDULE';
 export const DELETE_SCHEDULE = 'DELETE_SCHEDULE';
+
+// Types for passenger actions
+export const ADD_PASSENGER = 'ADD_PASSENGER';
+export const GET_PASSENGER = 'GET_PASSENGER';
+export const GET_PASSENGERS = 'GET_PASSENGERS';
+export const UPDATE_PASSENGER = 'UPDATE_PASSENGER';
+export const DELETE_PASSENGER = 'DELETE_PASSENGER';

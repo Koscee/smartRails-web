@@ -51,7 +51,7 @@ function RoutesList() {
     <LoadingSpinner />
   ) : (
     <div>
-      <AddButton text="Add route" onClick={showAddModal} />
+      <AddButton text="Add Route" onClick={showAddModal} />
 
       <CustomModal
         title="Add New Route"

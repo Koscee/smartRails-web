@@ -1,16 +1,16 @@
-import React, { useState, useContext } from 'react';
 import { Table } from 'antd';
-import CustomModal from '../../CustomModal';
-import { AddButton } from '../../buttons';
-import LoadingSpinner from '../../LoadingSpinner';
-import { TrainTypeContext } from '../../../contexts/TrainTypeContex';
-import { deleteTrainType } from '../../../actions/trainTypeAction';
-import defineTrainTypeTableColumns from './trainTypeTableColumns';
-import AddTrainTypeForm from './AddTrainTypeForm';
-import UpdateTrainTypeForm from './UpdateTrainTypeForm';
+import React, { useContext, useState } from 'react';
+import { deletePassenger } from '../../actions/passengerActions';
+import { PassengerContext } from '../../contexts/PassengerContext';
+import LoadingSpinner from '../LoadingSpinner';
+import { AddButton } from '../buttons';
+import CustomModal from '../CustomModal';
+import AddPassengerForm from './AddPassengerForm';
+import UpdatePassengerForm from './UpdatePassengerForm';
+import definePassengerTableColumns from './passengerTableColumns';
 
-function TrainTypesList() {
-  const { trainTypes, dispatch } = useContext(TrainTypeContext);
+function PassengersList() {
+  const { passengers, dispatch } = useContext(PassengerContext);
 
   const [addModalVisible, setAddModalVisible] = useState(false);
   const [editModalVisible, setEditModalVisible] = useState(false);
@@ -36,51 +36,51 @@ function TrainTypesList() {
 
   const handleDelete = (id) => {
     console.log(id);
-    deleteTrainType(dispatch, id);
+    deletePassenger(dispatch, id);
   };
 
-  const columns = defineTrainTypeTableColumns(
-    trainTypes,
+  const columns = definePassengerTableColumns(
+    passengers || [],
     showEditModal,
     setSelectedItem,
     handleDelete
   );
 
-  return trainTypes?.length < 1 ? (
+  return !passengers ? (
     <LoadingSpinner />
   ) : (
     <div>
-      <AddButton text="Add Type" onClick={showAddModal} />
+      <AddButton text="Add Passenger" onClick={showAddModal} />
 
       <CustomModal
-        title="Add New Train Class"
+        title="Add New Passenger"
         visible={addModalVisible}
         onCancel={onAddFormModalCancel}
       >
-        <AddTrainTypeForm />
+        <AddPassengerForm />
       </CustomModal>
 
       <CustomModal
-        title="Update Train Class"
+        title="Update Passenger"
         visible={editModalVisible}
         onCancel={onEditFormModalCancel}
       >
-        <UpdateTrainTypeForm
-          trainTypeId={selectedItem?._id}
-          closeForm={() => setEditModalVisible(false)}
+        <UpdatePassengerForm
+          passenger={selectedItem}
+          closeForm={setEditModalVisible}
         />
       </CustomModal>
 
       <Table
         bordered
-        dataSource={trainTypes}
         size="middle"
+        dataSource={passengers}
         columns={columns}
-        scroll={{ y: 350 }}
+        scroll={{ y: 350, x: 1250 }}
         rowKey={(record) => record._id}
       />
     </div>
   );
 }
 
-export default TrainTypesList;
+export default PassengersList;

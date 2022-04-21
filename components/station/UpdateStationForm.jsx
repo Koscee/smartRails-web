@@ -51,6 +51,7 @@ function UpdateStationForm({ stationId, cities, closeForm }) {
       validationFields={[
         // atleast one field needs to be touched for update to occur
         'en_name',
+        'cn_name',
         'type',
         'city',
         'lon',

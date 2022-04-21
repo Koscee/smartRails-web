@@ -51,7 +51,7 @@ function TrainsList() {
     <LoadingSpinner />
   ) : (
     <div>
-      <AddButton text="Add train" onClick={showAddModal} />
+      <AddButton text="Add Train" onClick={showAddModal} />
 
       <CustomModal
         title="Add New Train"

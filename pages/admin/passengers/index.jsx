@@ -1,13 +1,15 @@
 import React from 'react';
 import { AdminLayout, MainContent } from '../../../components/Layouts';
+import { PassengerProvider } from '../../../contexts';
+import { PassengersList } from '../../../components/passenger';
 
 function PassengersPage() {
   return (
-    <MainContent title="Passengers">
-      <div>
-        <h1>List of all Passengers</h1>
-      </div>
-    </MainContent>
+    <PassengerProvider>
+      <MainContent title="Passengers">
+        <PassengersList />
+      </MainContent>
+    </PassengerProvider>
   );
 }
 

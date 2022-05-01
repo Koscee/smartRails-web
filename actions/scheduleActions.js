@@ -1,11 +1,11 @@
 import { openNotificationWithIcon } from '../utils/actionMessages';
 import smartrailsApi from '../utils/apiConfig';
 
-export const getSchedules = async (trainNo) => {
+export const getSchedules = async (searchQuery) => {
   // make get request to /api/trains/schedules
   try {
     const res = await smartrailsApi.get('/api/trains/schedules', {
-      params: { train_no: trainNo },
+      params: { ...searchQuery },
     });
     return res.data;
   } catch (err) {

@@ -55,8 +55,20 @@ const sideNavMenuItems = [
   {
     key: '6',
     text: 'Bookings',
-    href: '/admin/bookings',
+    // href: '/admin/bookings',
     icon: <AccountBookOutlined />,
+    children: [
+      {
+        key: '6.1',
+        text: 'Manage Bookings',
+        href: '/admin/bookings',
+      },
+      {
+        key: '6.2',
+        text: 'Purchase Ticket',
+        href: '/admin/bookings/available-tickets',
+      },
+    ],
   },
   {
     key: '7',

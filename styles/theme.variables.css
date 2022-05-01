@@ -5,13 +5,24 @@
   --accent-main: hsl(23, 100%, 43%);
   --accent-light: hsl(21, 84%, 62%);
   --black: #191136;
-  --background-main: #f5f4fe68;
+  --background-main: #f5f4fe;
+  --background-main-1: #f5f4fe68;
   --background-main-2: #f0effea4;
   --background-1: #fbfaff;
   --background-2: #f5f6fa;
+  --background-3: #fdfdfd;
   --error: #da0051;
   --white: #ffffff;
+  --grey-1: #f2f2f2;
+  --grey-2: #bdbdbd;
+  --grey-3: #707070e5;
+  --grey-4: #3c3c3c;
+  --grey-5: #232323;
 
   /* Borders */
   --border-thin: 0.8px solid rgb(228, 228, 228);
+  --border-dashed: 1px dashed #e9e9e9;
+
+  /* Box shadows */
+  --box-shadow-main: 0px 0px 11px 6px rgba(0, 0, 0, 0.04);
 }

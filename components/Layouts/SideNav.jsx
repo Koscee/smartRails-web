@@ -14,13 +14,14 @@ function SideNav({ collapsed }) {
       collapsed={collapsed}
     >
       <div className={styles.logo}>
-        {collapsed ? (
-          <span>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        ) : (
-          <h2>SmartRails</h2>
-        )}
+        <span style={{ margin: !collapsed && '26px' }}>
+          <Image
+            src="/assets/smartrails-primary.svg"
+            alt="SmartRails Logo"
+            width={90}
+            height={45}
+          />
+        </span>
       </div>
       <SideNavMenu />
     </Layout.Sider>

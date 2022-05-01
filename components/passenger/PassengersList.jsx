@@ -57,7 +57,7 @@ function PassengersList() {
         visible={addModalVisible}
         onCancel={onAddFormModalCancel}
       >
-        <AddPassengerForm />
+        <AddPassengerForm dispatch={dispatch} checkAllFieldsTouched />
       </CustomModal>
 
       <CustomModal

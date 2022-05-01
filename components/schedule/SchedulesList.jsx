@@ -34,7 +34,7 @@ function SchedulesList() {
     setLoading({ searchBtn: true, table: true });
 
     // call getSchedules action.
-    const foundSchedules = await getSchedules(value);
+    const foundSchedules = await getSchedules({ train_no: value });
     console.log(value);
 
     if (foundSchedules.length < 1) {

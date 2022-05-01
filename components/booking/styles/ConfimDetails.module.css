@@ -1,0 +1,64 @@
+.container h4 {
+  margin-bottom: 3px;
+  line-height: 1;
+}
+.container tr span {
+  color: var(--grey-3);
+}
+.container button span {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.general_info div {
+  width: 100%;
+  justify-content: center;
+}
+
+.journey_title div {
+  display: block;
+  text-align: center;
+}
+
+.arrow_icon {
+  font-size: 1.6em;
+}
+
+.passenger_details {
+  margin: 12px 0;
+}
+
+.divider {
+  margin: 8px auto;
+  border-width: 1px;
+}
+
+.order_summary {
+  box-shadow: var(--box-shadow-main);
+}
+
+.order_summary > div table td,
+.passenger_details div table td {
+  padding-bottom: 8px;
+}
+
+.order_summary > div table td > div :nth-child(1),
+.passenger_details div table td > div :nth-child(1) {
+  font-weight: 500;
+}
+
+.order_summary > div table td > div :nth-child(2) {
+  display: inline-block;
+  text-align: end;
+  font-weight: 400;
+}
+
+.price_info > div tbody > :last-child td span {
+  font-size: 1.09em;
+  font-weight: 600;
+}
+
+.proceed_button {
+  text-align: center;
+  margin: 25px auto 15px;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Spin } from 'antd';
 
-function LoadingSpinner() {
+function LoadingSpinner({ tip, size, spinning, children }) {
   return (
     <div
       style={{
@@ -12,7 +12,9 @@ function LoadingSpinner() {
         justifyContent: 'center',
       }}
     >
-      <Spin tip="Loading..." />
+      <Spin tip={tip || 'Loading...'} size={size} spinning={spinning}>
+        {children}
+      </Spin>
     </div>
   );
 }

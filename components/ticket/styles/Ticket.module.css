@@ -1,0 +1,178 @@
+.ticket {
+  width: 380px;
+  margin: 0 auto 40px;
+  background: var(--background-1);
+  border: var(--border-thin);
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: var(--box-shadow-main);
+}
+.ticket > * {
+  width: 100%;
+  padding: 15px 30px;
+}
+
+.ticket_header,
+.ticket_section1,
+.ticket_section2_details,
+.ticket_footer {
+  justify-content: space-between;
+  width: 100%;
+}
+
+.ticket_header > * > div,
+.ticket_section1 > * > div,
+.ticket_section2_details > * > div,
+.ticket_section2_passenger,
+.ticket_footer_price {
+  flex-direction: column;
+}
+
+.ticket_section1 > * > div,
+.ticket_section2_passenger,
+.ticket_section2_details > * > div {
+  align-items: flex-start;
+}
+
+.ticket_header {
+  padding: 30px;
+  background: var(--primary-main);
+  color: var(--background-2);
+}
+.ticket_header > * > div {
+  gap: 1px !important;
+}
+
+.ticket_station {
+  /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+}
+.ticket_station div:first-child {
+  text-align: center;
+  font-size: 1.43em;
+  line-height: 1.1;
+  letter-spacing: 5px;
+}
+.ticket_station div:last-child {
+  font-weight: 400;
+  color: var(--background-main-2);
+}
+
+.ticket_header_middle_item {
+  font-size: 1.1em;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.arrow_right,
+.arrow_right::before {
+  height: 2.5px;
+  border-radius: 1.5px;
+  background: var(--background-main-2);
+}
+.arrow_right {
+  width: 55px;
+  margin: 8px;
+}
+.arrow_right::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  transform: translateX(35.1px) translateY(-3px) rotate(19deg);
+}
+
+.ticket_section1 {
+  background: var(--background-main);
+}
+
+.ticket_section1_item,
+.ticket_section2_passenger,
+.ticket_section2_details_item {
+  gap: 3px !important;
+}
+
+.ticket_section1_item div:first-child,
+.ticket_section2_passenger div:first-child,
+.ticket_section2_details_item div:first-child,
+.ticket_footer_price div:first-child {
+  font-size: 1em;
+  font-weight: 500;
+  color: var(--grey-3);
+}
+.ticket_section1_item div:last-child,
+.ticket_section2_passenger div:last-child,
+.ticket_section2_details_item div:last-child,
+.ticket_footer_price div:last-child {
+  color: var(--grey-4);
+  font-weight: 500;
+}
+
+.ticket_section1_item div:last-child {
+  font-size: 1.23em;
+}
+
+.ticket_section2_passenger div:last-child {
+  font-size: 1.25em;
+  text-transform: uppercase;
+}
+
+.ticket_section2_details_item div:last-child {
+  font-size: 1.2em;
+}
+
+.ticket_footer_price div:last-child {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.6em;
+  font-weight: 600;
+}
+
+.vertical_divider,
+.horizontal_divider {
+  border-width: 1px;
+  border-color: var(--grey-2);
+}
+.vertical_divider {
+  height: 25px;
+}
+.horizontal_divider {
+  margin: 6px auto;
+  padding: 0;
+  position: relative;
+}
+
+.horizontal_divider::before,
+.horizontal_divider::after {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  background-color: #e0e1f4;
+}
+.horizontal_divider::before {
+  top: -7px;
+  left: -7px;
+}
+.horizontal_divider::after {
+  top: -7px;
+  right: -7px;
+}
+
+/* For Printing */
+
+@media print and (color) {
+  @page {
+    margin: 80px 20px;
+  }
+
+  .ticket {
+    box-shadow: none;
+  }
+
+  .ticket_header,
+  .ticket_section1,
+  .horizontal_divider::before,
+  .horizontal_divider::after {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

@@ -12,7 +12,7 @@
 
 .sider_nav {
   min-height: 100vh;
-  background: var(--background-main);
+  background: var(--background-main-1);
   backdrop-filter: blur(90px);
   border-right: var(--border-thin);
 }

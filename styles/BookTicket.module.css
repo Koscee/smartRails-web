@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15%;
+}
+
+.book_ticket {
+  width: 100%;
+}
+
+.steps_content {
+  height: 500px;
+  margin-top: 16px;
+  padding: 40px 0;
+  background-color: var(--background-1);
+  border: var(--border-dashed);
+  border-radius: 2px;
+  overflow-y: auto;
+}

@@ -1,0 +1,56 @@
+.card {
+  margin: auto;
+  width: 410px;
+}
+
+.card_content {
+  width: 100%;
+  align-items: center;
+}
+
+.close_button {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.amount {
+  margin-bottom: 20px;
+  line-height: 3;
+  font-size: 2.3em;
+  font-weight: 600;
+  color: rgb(73, 73, 73);
+}
+
+.pay_button,
+.number_input {
+  width: 300px;
+}
+
+.number_input {
+  height: 45px;
+}
+
+.number_input input,
+.currency {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.number_input input::placeholder {
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.currency {
+  padding-right: 10px;
+  color: grey;
+}
+
+.pay_button {
+  margin: 40px auto;
+  font-size: 1.3em;
+  font-weight: 500;
+  line-height: 0;
+  letter-spacing: 1.2px;
+}

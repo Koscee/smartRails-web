@@ -1,10 +1,13 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { addPassenger } from '../../actions/passengerActions';
-import { PassengerContext } from '../../contexts/PassengerContext';
 import PassengerForm from './PassengerForm';
 
-function AddPassengerForm() {
-  const { dispatch } = useContext(PassengerContext);
+function AddPassengerForm({
+  initialValues,
+  handleFormSubmit,
+  checkAllFieldsTouched,
+  dispatch,
+}) {
   const [btnLoading, setBtnLoading] = useState(false);
 
   const onFormSubmit = async (formData, form) => {
@@ -28,9 +31,9 @@ function AddPassengerForm() {
   return (
     <PassengerForm
       name="addPassenger"
-      formInitialValues={formInitialValues}
-      onFormSubmit={onFormSubmit}
-      checkAllFieldsTouched
+      formInitialValues={initialValues || formInitialValues}
+      onFormSubmit={handleFormSubmit || onFormSubmit}
+      checkAllFieldsTouched={checkAllFieldsTouched}
       submitBtnLoading={btnLoading}
     />
   );

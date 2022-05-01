@@ -1,20 +1,27 @@
 import React from 'react';
 import { Button, Popconfirm, Space } from 'antd';
 
-export function EditButton({ onClick }) {
+export function ActionButton({ text, onClick, ...otherProps }) {
   return (
-    <Button type="link" style={{ padding: 0 }} onClick={onClick}>
-      Edit
+    <Button
+      type="link"
+      style={{ padding: 0 }}
+      onClick={onClick}
+      {...otherProps}
+    >
+      {text}
     </Button>
   );
+}
+
+export function EditButton({ onClick }) {
+  return <ActionButton text="Edit" onClick={onClick} />;
 }
 
 export function DeleteButton({ onConfirm }) {
   return (
     <Popconfirm title="Sure to delete?" onConfirm={onConfirm}>
-      <Button type="link" style={{ padding: 0 }}>
-        Delete
-      </Button>
+      <ActionButton danger text="Delete" />
     </Popconfirm>
   );
 }

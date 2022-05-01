@@ -1,13 +1,15 @@
 import React from 'react';
+import { BookingList } from '../../../components/booking';
 import { AdminLayout, MainContent } from '../../../components/Layouts';
+import { BookingProvider } from '../../../contexts';
 
 function BookingsPage() {
   return (
-    <MainContent title="Bookings">
-      <div>
-        <h1>List of all Bookings</h1>
-      </div>
-    </MainContent>
+    <BookingProvider>
+      <MainContent title="Bookings">
+        <BookingList />
+      </MainContent>
+    </BookingProvider>
   );
 }
 

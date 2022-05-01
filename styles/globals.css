@@ -15,3 +15,18 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.screen-wrapper {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media print {
+  body {
+    background: var(--white) !important;
+  }
+}

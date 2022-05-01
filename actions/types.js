@@ -39,3 +39,14 @@ export const GET_PASSENGER = 'GET_PASSENGER';
 export const GET_PASSENGERS = 'GET_PASSENGERS';
 export const UPDATE_PASSENGER = 'UPDATE_PASSENGER';
 export const DELETE_PASSENGER = 'DELETE_PASSENGER';
+
+// Types for booking actions
+export const ADD_BOOKING = 'ADD_BOOKING';
+export const GET_BOOKING = 'GET_BOOKING';
+export const GET_BOOKINGS = 'GET_BOOKINGS';
+export const CANCEL_BOOKING = 'CANCEL_BOOKING';
+
+// Types for ticket purchase actions
+export const CHOOSE_TICKET = 'CHOOSE_TICKET';
+export const ADD_PASSENGER_INFO = 'ADD_PASSENGER_INFO';
+export const CONFIRM_PAYMENT = 'CONFIRM_PAYMENT';

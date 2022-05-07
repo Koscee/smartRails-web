@@ -4,18 +4,11 @@ import {
   InputField,
   InputGroupField,
   SelectInputField,
-  //   TimeRangePicker,
 } from '../form-elements';
 
 const { Option } = Select;
 
-function StationFormFields({ cities /* ,onTimeChange */ }) {
-  /* const [timeRange, setTimeRange] = useState('');
-
-  const onTimeChange = (time, timeString) => {
-    setTimeRange(timeString.join(' - '));
-  }; */
-
+function StationFormFields({ cities }) {
   return (
     <>
       <InputField
@@ -74,12 +67,6 @@ function StationFormFields({ cities /* ,onTimeChange */ }) {
           rules={[{ required: true, message: 'Latitude is required' }]}
         />
       </InputGroupField>
-      {/* <TimeRangePicker
-        label="Service Hours"
-        name="service_hrs"
-        format="h:mm a"
-        onChange={onTimeChange}
-      /> */}
       <SelectInputField
         label="Ticket Counters"
         name="counters"

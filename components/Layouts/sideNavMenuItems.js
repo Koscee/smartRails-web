@@ -8,18 +8,20 @@ import Icon, {
 } from '@ant-design/icons';
 import TrainSvg from '../../public/assets/train-round.svg';
 
+const iconStyle = { fontSize: '1.2em' };
+
 const sideNavMenuItems = [
   {
     key: '1',
     text: 'Dashboard',
     href: '/admin/dashboard',
-    icon: <LayoutOutlined />,
+    icon: <LayoutOutlined style={iconStyle} />,
   },
   {
     key: '2',
     text: 'Trains',
     // href: '/admin/trains',
-    icon: <Icon component={TrainSvg} />,
+    icon: <Icon component={TrainSvg} style={iconStyle} />,
     children: [
       {
         key: '2.1',
@@ -38,25 +40,25 @@ const sideNavMenuItems = [
     key: '3',
     text: 'Schedules',
     href: '/admin/schedules',
-    icon: <ScheduleOutlined />,
+    icon: <ScheduleOutlined style={iconStyle} />,
   },
   {
     key: '4',
     text: 'Routes',
     href: '/admin/routes',
-    icon: <NodeIndexOutlined />,
+    icon: <NodeIndexOutlined style={iconStyle} />,
   },
   {
     key: '5',
     text: 'Stations',
     href: '/admin/stations',
-    icon: <InsertRowRightOutlined />,
+    icon: <InsertRowRightOutlined style={iconStyle} />,
   },
   {
     key: '6',
     text: 'Bookings',
     // href: '/admin/bookings',
-    icon: <AccountBookOutlined />,
+    icon: <AccountBookOutlined style={iconStyle} />,
     children: [
       {
         key: '6.1',
@@ -74,7 +76,7 @@ const sideNavMenuItems = [
     key: '7',
     text: 'Passengers',
     href: '/admin/passengers',
-    icon: <UsergroupAddOutlined />,
+    icon: <UsergroupAddOutlined style={iconStyle} />,
   },
 ];
 

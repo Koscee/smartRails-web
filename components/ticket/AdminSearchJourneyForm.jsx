@@ -9,7 +9,7 @@ import { FormItem, SelectInputField } from '../form-elements';
 
 const { Option } = Select;
 
-function AdminTicketSearchForm() {
+function AdminSearchJourneyForm() {
   const { loading, setLoading, setAvailableTickets } = useContext(
     TicketPurchaseContext
   );
@@ -42,10 +42,6 @@ function AdminTicketSearchForm() {
     console.log(searchQuery);
     console.log(foundAvailableTickets);
 
-    // if (foundAvailableTickets.length < 1) {
-    //   // set empty data message
-    //   setNotFoundMssg('Ooops!... No ticket found');
-    // }
     setAvailableTickets(foundAvailableTickets);
     // unset loading
     setLoading({ searchBtn: false, table: false });
@@ -90,7 +86,7 @@ function AdminTicketSearchForm() {
               rules={[{ required: true, message: 'Field reuqired' }]}
             >
               <DatePicker
-                placeholder="Select departure date"
+                placeholder="departure date"
                 disabledDate={disabledDate}
                 style={{ width: '100%' }}
               />
@@ -114,4 +110,4 @@ function AdminTicketSearchForm() {
   );
 }
 
-export default AdminTicketSearchForm;
+export default AdminSearchJourneyForm;

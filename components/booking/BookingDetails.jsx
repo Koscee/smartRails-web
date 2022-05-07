@@ -1,7 +1,8 @@
 import { Badge, Descriptions } from 'antd';
 import React from 'react';
+import TICKET_STATUS from '../../utils/ticketStatus';
 
-function BookingDetails({ order, statusColor }) {
+function BookingDetails({ order }) {
   const {
     _id,
     status,
@@ -19,7 +20,7 @@ function BookingDetails({ order, statusColor }) {
         {_id}
       </Descriptions.Item>
       <Descriptions.Item label="Status" span={3}>
-        <Badge status={statusColor[status]} text={status} />
+        <Badge status={TICKET_STATUS[status].color} text={status} />
       </Descriptions.Item>
       <Descriptions.Item label="Order time" span={2}>
         {created_at}

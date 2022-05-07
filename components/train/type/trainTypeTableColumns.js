@@ -2,6 +2,7 @@ import { Tag } from 'antd';
 import { DeleteButton, EditButton, RowButtonWrapper } from '../../buttons';
 
 export default function defineTrainTypeTableColumns(
+  hasRoleSuperAdmin,
   trainTypesList,
   showEditModal,
   setSelectedItem,
@@ -77,23 +78,25 @@ export default function defineTrainTypeTableColumns(
       dataIndex: 'description',
     },
 
-    {
-      title: 'Action',
-      dataIndex: 'action',
-      width: 110,
-      render: (_, record) =>
-        trainTypesList?.length >= 1 ? (
-          <RowButtonWrapper size="middle">
-            <EditButton
-              onClick={() => {
-                setSelectedItem(record);
-                showEditModal();
-              }}
-            />
+    hasRoleSuperAdmin
+      ? {
+          title: 'Action',
+          dataIndex: 'action',
+          width: 110,
+          render: (_, record) =>
+            trainTypesList?.length >= 1 ? (
+              <RowButtonWrapper size="middle">
+                <EditButton
+                  onClick={() => {
+                    setSelectedItem(record);
+                    showEditModal();
+                  }}
+                />
 
-            <DeleteButton onConfirm={() => handleDelete(record._id)} />
-          </RowButtonWrapper>
-        ) : null,
-    },
+                <DeleteButton onConfirm={() => handleDelete(record._id)} />
+              </RowButtonWrapper>
+            ) : null,
+        }
+      : [],
   ];
 }

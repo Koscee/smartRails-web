@@ -3,6 +3,7 @@ import { Modal } from 'antd';
 import { DeleteButton, EditButton, RowButtonWrapper } from '../buttons';
 
 export default function defineTrainTableColumns(
+  hasRoleSuperAdmin,
   trainsList,
   trainTypes,
   showEditModal,
@@ -107,30 +108,32 @@ export default function defineTrainTableColumns(
       render: (currStation) => <span>{currStation}</span>,
     },
 
-    {
-      title: 'Action',
-      dataIndex: 'action',
-      width: 100,
-      render: (_, record) =>
-        trainsList?.length >= 1 ? (
-          <RowButtonWrapper size="middle">
-            <EditButton
-              onClick={() => {
-                if (!record.is_scheduled) {
-                  setSelectedItem(record);
-                  showEditModal();
-                } else {
-                  Modal.warning({
-                    title: 'Warning!',
-                    content: 'Train is busy, try updating later...',
-                  });
-                }
-              }}
-            />
+    hasRoleSuperAdmin
+      ? {
+          title: 'Action',
+          dataIndex: 'action',
+          width: 100,
+          render: (_, record) =>
+            trainsList?.length >= 1 ? (
+              <RowButtonWrapper size="middle">
+                <EditButton
+                  onClick={() => {
+                    if (!record.is_scheduled) {
+                      setSelectedItem(record);
+                      showEditModal();
+                    } else {
+                      Modal.warning({
+                        title: 'Warning!',
+                        content: 'Train is busy, try updating later...',
+                      });
+                    }
+                  }}
+                />
 
-            <DeleteButton onConfirm={() => handleDelete(record._id)} />
-          </RowButtonWrapper>
-        ) : null,
-    },
+                <DeleteButton onConfirm={() => handleDelete(record._id)} />
+              </RowButtonWrapper>
+            ) : null,
+        }
+      : [],
   ];
 }

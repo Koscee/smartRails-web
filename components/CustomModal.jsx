@@ -1,15 +1,15 @@
 import { Modal } from 'antd';
 import React from 'react';
 
-function CustomModal({ title, visible, onCancel, children }) {
+function CustomModal({ title, visible, height, width, onCancel, children }) {
   return (
     <Modal
       title={title}
       centered
       visible={visible}
       onCancel={onCancel}
-      width={700}
-      bodyStyle={{ height: 500, overflowY: 'scroll' }}
+      width={width || 700}
+      bodyStyle={{ height: height || 500, overflowY: 'auto' }}
       maskClosable={false}
       maskStyle={{ opacity: 0.4 }}
       destroyOnClose

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Layout } from 'antd';
-import Image from 'next/image';
 import SideNavMenu from './SideNavMenu';
 import styles from './styles/SideNav.module.css';
+import SmartRailsLogo from '../SmartRailsLogo';
 
 function SideNav({ collapsed }) {
   return (
@@ -15,12 +15,7 @@ function SideNav({ collapsed }) {
     >
       <div className={styles.logo}>
         <span style={{ margin: !collapsed && '26px' }}>
-          <Image
-            src="/assets/smartrails-primary.svg"
-            alt="SmartRails Logo"
-            width={90}
-            height={45}
-          />
+          <SmartRailsLogo width={90} height={45} />
         </span>
       </div>
       <SideNavMenu />

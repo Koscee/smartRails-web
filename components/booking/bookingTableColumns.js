@@ -1,11 +1,11 @@
 import { Tag } from 'antd';
 import moment from 'moment';
 import { DATE_FORMAT, TIME_FORMAT } from '../../utils/constants';
+import TICKET_STATUS from '../../utils/ticketStatus';
 import { ActionButton, RowButtonWrapper } from '../buttons';
 
 export default function defineBookingTableColumns(
   bookings,
-  statusColor,
   setSelectedItem,
   showDetailsModal,
   handleCancelBooking
@@ -71,7 +71,9 @@ export default function defineBookingTableColumns(
         { text: <span>expired</span>, value: 'expired' },
       ],
       onFilter: (value, record) => record.status.includes(value),
-      render: (status) => <Tag color={statusColor[status]}>{status}</Tag>,
+      render: (status) => (
+        <Tag color={TICKET_STATUS[status].color}>{status}</Tag>
+      ),
     },
 
     {

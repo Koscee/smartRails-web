@@ -1,5 +1,6 @@
-import { Button, Form } from 'antd';
+import { Form } from 'antd';
 import React, { useState, useEffect, createContext } from 'react';
+import Submit from './Submit';
 
 export const FormContext = createContext();
 
@@ -40,21 +41,13 @@ function FormContainer({
         {children}
         <Form.Item shouldUpdate wrapperCol={{ offset: 6, span: 12 }}>
           {() => (
-            <Button
-              type="primary"
-              htmlType="submit"
+            <Submit
+              form={form}
+              buttonText="Submit"
               loading={submitBtnLoading}
-              disabled={
-                !form.isFieldsTouched(
-                  validationFields,
-                  checkAllFieldsTouched
-                ) ||
-                !!form.getFieldsError().filter(({ errors }) => errors.length)
-                  .length
-              }
-            >
-              Submit
-            </Button>
+              checkAllFieldsTouched={checkAllFieldsTouched}
+              validationFields={validationFields}
+            />
           )}
         </Form.Item>
       </Form>

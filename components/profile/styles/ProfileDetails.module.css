@@ -1,0 +1,13 @@
+.container {
+  width: 50%;
+}
+
+.descriptions {
+  width: 93%;
+  margin: auto;
+  padding: 1.5rem;
+  background: var(--background-1);
+  border: var(--border-thin);
+  border-radius: 5px;
+  box-shadow: var(--box-shadow-main);
+}

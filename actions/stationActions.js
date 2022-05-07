@@ -1,6 +1,11 @@
 import { openNotificationWithIcon } from '../utils/actionMessages';
 import smartrailsApi from '../utils/apiConfig';
-import { ADD_STATION, UPDATE_STATION, DELETE_STATION } from './types';
+import {
+  ADD_STATION,
+  UPDATE_STATION,
+  DELETE_STATION,
+  GET_STATIONS,
+} from './types';
 
 export const addStation = async (dispatch, formData, form, setBtnLoading) => {
   // make post request to /api/stations
@@ -60,10 +65,13 @@ export const getStation = async (stationId) => {
   }
 };
 
-export const getStations = async () => {
+export const getStations = async (dispatch) => {
   // make get request to /api/stations
   try {
     const res = await smartrailsApi.get('/api/stations');
+    if (dispatch) {
+      dispatch({ type: GET_STATIONS, payload: res.data });
+    }
     return res.data;
   } catch (err) {
     const errorsMssg = err.response?.data.error.message;

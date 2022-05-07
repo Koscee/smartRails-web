@@ -3,14 +3,19 @@ import { Table } from 'antd';
 import CustomModal from '../CustomModal';
 import { AddButton } from '../buttons';
 import LoadingSpinner from '../LoadingSpinner';
+import { AuthContext } from '../../contexts/AuthContext';
 import { TrainContext } from '../../contexts/TrainContext';
 import { deleteTrain } from '../../actions/trainActions';
 import defineTrainTableColumns from './trainTableColumns';
 import AddTrainForm from './AddTrainForm';
 import UpdateTrainForm from './UpdateTrainForm';
+import { isSuperAdmin } from '../../utils/permissionCheck';
 
 function TrainsList() {
   const { trains, trainTypes, dispatch } = useContext(TrainContext);
+  const { authData } = useContext(AuthContext);
+  const { user } = authData;
+  const hasRoleSuperAdmin = isSuperAdmin(user.role);
 
   const [addModalVisible, setAddModalVisible] = useState(false);
   const [editModalVisible, setEditModalVisible] = useState(false);
@@ -40,18 +45,21 @@ function TrainsList() {
   };
 
   const columns = defineTrainTableColumns(
+    hasRoleSuperAdmin,
     trains,
     trainTypes,
     showEditModal,
     setSelectedItem,
     handleDelete
-  );
+  ).flat();
 
   return trains?.length < 1 ? (
     <LoadingSpinner />
   ) : (
     <div>
-      <AddButton text="Add Train" onClick={showAddModal} />
+      {hasRoleSuperAdmin && (
+        <AddButton text="Add Train" onClick={showAddModal} />
+      )}
 
       <CustomModal
         title="Add New Train"

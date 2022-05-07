@@ -2,6 +2,7 @@ import { Badge } from 'antd';
 import { DeleteButton, EditButton, RowButtonWrapper } from '../buttons';
 
 export default function defineStationTableColumns(
+  hasRoleSuperAdmin,
   stationsList,
   showEditModal,
   setSelectedItem,
@@ -19,7 +20,6 @@ export default function defineStationTableColumns(
     {
       title: 'Name',
       dataIndex: 'name',
-      // render: (_, { en_name, cn_name }) => `${en_name} (${cn_name})`,
       children: [
         {
           title: 'English',
@@ -86,23 +86,25 @@ export default function defineStationTableColumns(
       ),
     },
 
-    {
-      title: 'Action',
-      dataIndex: 'action',
-      width: 110,
-      render: (_, record) =>
-        stationsList.length >= 1 ? (
-          <RowButtonWrapper size="middle">
-            <EditButton
-              onClick={() => {
-                setSelectedItem(record);
-                showEditModal();
-              }}
-            />
+    hasRoleSuperAdmin
+      ? {
+          title: 'Action',
+          dataIndex: 'action',
+          width: 110,
+          render: (_, record) =>
+            stationsList.length >= 1 ? (
+              <RowButtonWrapper size="middle">
+                <EditButton
+                  onClick={() => {
+                    setSelectedItem(record);
+                    showEditModal();
+                  }}
+                />
 
-            <DeleteButton onConfirm={() => handleDelete(record._id)} />
-          </RowButtonWrapper>
-        ) : null,
-    },
+                <DeleteButton onConfirm={() => handleDelete(record._id)} />
+              </RowButtonWrapper>
+            ) : null,
+        }
+      : [],
   ];
 }

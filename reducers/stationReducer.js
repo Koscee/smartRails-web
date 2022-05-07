@@ -1,4 +1,9 @@
-import { ADD_STATION, DELETE_STATION, UPDATE_STATION } from '../actions/types';
+import {
+  ADD_STATION,
+  DELETE_STATION,
+  GET_STATIONS,
+  UPDATE_STATION,
+} from '../actions/types';
 
 // const initialStations = [/** stations data fetched from the backend */];
 
@@ -16,6 +21,9 @@ export default function stationReducer(state, action) {
       newData.splice(index, 1, { ...station, ...action.payload });
       return [...newData];
     }
+
+    case GET_STATIONS:
+      return [...action.payload];
 
     case DELETE_STATION:
       return state.filter((station) => station._id !== action.payload);

@@ -1,10 +1,27 @@
-import React, { createContext, useReducer, useMemo } from 'react';
+import React, {
+  createContext,
+  useEffect,
+  useState,
+  useReducer,
+  useMemo,
+} from 'react';
+import { getRoutes } from '../actions/routeActions';
+import { getStations } from '../actions/stationActions';
 import routeReducer from '../reducers/routeReducer';
 
 export const RouteContext = createContext();
 
-function RouteProvider({ routesList, stations, children }) {
-  const [routes, dispatch] = useReducer(routeReducer, routesList);
+function RouteProvider({ children }) {
+  const [routes, dispatch] = useReducer(routeReducer, []);
+  const [stations, setStations] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      await getRoutes(dispatch);
+      const stationsList = await getStations();
+      setStations(stationsList);
+    })();
+  }, []);
 
   const values = useMemo(
     () => ({ routes, stations, dispatch }),

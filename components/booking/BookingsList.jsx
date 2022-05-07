@@ -8,13 +8,6 @@ import confirmCancelBooking from './confirmCancelBooking';
 import CustomModal from '../CustomModal';
 import BookingDetails from './BookingDetails';
 
-const statusColor = {
-  pending: 'blue',
-  complete: 'green',
-  cancelled: 'volcano',
-  expired: 'default',
-};
-
 function BookingsList() {
   const { bookings, dispatch } = useContext(BookingContext);
   const [detailsModalVisible, setDetailsModalVisible] = useState(false);
@@ -35,14 +28,13 @@ function BookingsList() {
       order,
       (closeModal) =>
         new Promise(() => {
-          cancelBooking(dispatch, order._id, closeModal);
+          cancelBooking(order._id, closeModal, dispatch);
         })
     );
   };
 
   const columns = defineBookingTableColumns(
     bookings || [],
-    statusColor,
     setSelectedItem,
     showDetailsModal,
     handleCancelBooking
@@ -59,7 +51,7 @@ function BookingsList() {
         visible={detailsModalVisible}
         onCancel={onDetailsModalCancel}
       >
-        <BookingDetails order={selectedItem} statusColor={statusColor} />
+        <BookingDetails order={selectedItem} />
       </CustomModal>
 
       <Table

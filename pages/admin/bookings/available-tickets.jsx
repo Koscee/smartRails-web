@@ -1,15 +1,15 @@
 import React from 'react';
 import { AdminLayout, MainContent } from '../../../components/Layouts';
 import {
-  AdminTicketSearchForm,
+  AdminSearchJourneyForm,
   AvailableTicketsList,
 } from '../../../components/ticket';
 
 function AvailableTicketsPage() {
   return (
     <MainContent title="Bookings" subtitle="Purchase Ticket">
-      <AdminTicketSearchForm />
-      <AvailableTicketsList />
+      <AdminSearchJourneyForm />
+      <AvailableTicketsList tableScroll />
     </MainContent>
   );
 }

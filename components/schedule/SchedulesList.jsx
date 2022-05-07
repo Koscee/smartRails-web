@@ -1,25 +1,33 @@
 import { Button, Space, Table } from 'antd';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import AddSchedulesForm from './AddSchedulesForm';
 import UpdateSchedulesForm from './UpdateSchedulesForm';
 import { CustomButton } from '../buttons';
 import CustomModal from '../CustomModal';
 import NoData from '../NoData';
 import SearchInput from '../SearchInput';
+import { AuthContext } from '../../contexts/AuthContext';
 import defineSchedulesTableColumns from './schedulesTableColumns';
 import { getSchedules } from '../../actions/scheduleActions';
+import { isSuperAdmin } from '../../utils/permissionCheck';
 
-function EmptyBox(mssg, showAddModal) {
+function EmptyBox(mssg, hasRoleSuperAdmin, showAddModal) {
   return (
     <NoData description={mssg || 'No Data'}>
-      <Button type="primary" onClick={showAddModal}>
-        Create Schedules
-      </Button>
+      {hasRoleSuperAdmin && (
+        <Button type="primary" onClick={showAddModal}>
+          Create Schedules
+        </Button>
+      )}
     </NoData>
   );
 }
 
 function SchedulesList() {
+  const { authData } = useContext(AuthContext);
+  const { user } = authData;
+  const hasRoleSuperAdmin = isSuperAdmin(user.role);
+
   const [schedules, setSchedules] = useState([]);
   const [loading, setLoading] = useState({
     searchBtn: false,
@@ -32,7 +40,6 @@ function SchedulesList() {
   const onSearch = async (value) => {
     // set loading
     setLoading({ searchBtn: true, table: true });
-
     // call getSchedules action.
     const foundSchedules = await getSchedules({ train_no: value });
     console.log(value);
@@ -41,9 +48,7 @@ function SchedulesList() {
       // set empty data message
       setNotFoundMssg('Ooops!... No schedules found');
     }
-
     setSchedules(foundSchedules);
-
     // unset loading
     setLoading({ searchBtn: false, table: false });
   };
@@ -76,12 +81,14 @@ function SchedulesList() {
           onSearch={onSearch}
           loading={loading.searchBtn}
         />
-        <CustomButton
-          text="Update Schedules"
-          type="outline"
-          onClick={showEditModal}
-          marginBottom="auto"
-        />
+        {hasRoleSuperAdmin && (
+          <CustomButton
+            text="Update Schedules"
+            type="outline"
+            onClick={showEditModal}
+            marginBottom="auto"
+          />
+        )}
       </Space>
 
       <CustomModal
@@ -112,7 +119,8 @@ function SchedulesList() {
         components={
           schedules?.length < 1 && {
             body: {
-              wrapper: () => EmptyBox(notFoundMssg, showAddModal),
+              wrapper: () =>
+                EmptyBox(notFoundMssg, hasRoleSuperAdmin, showAddModal),
             },
           }
         }

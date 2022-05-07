@@ -5,7 +5,7 @@ import styles from './styles/Ticket.module.css';
 
 function Ticket({ details }, ref) {
   const [pageURL, setPageURL] = useState('');
-  const { passenger, schedule, seat, paid_amount } = details;
+  const { _id, passenger, schedule, seat, paid_amount } = details;
 
   useEffect(() => {
     setPageURL(window.location.href);
@@ -76,6 +76,10 @@ function Ticket({ details }, ref) {
           <span>{`￥${paid_amount}.00`}</span>
         </Space>
       </Space>
+      <div className={styles.ticket_footer_ticketNo}>
+        <span>Ticket No.: </span>
+        <span>{_id}</span>
+      </div>
     </div>
   );
 }

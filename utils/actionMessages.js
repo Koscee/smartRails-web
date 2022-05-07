@@ -28,6 +28,7 @@ export const errorMessage = (mssg) => {
   }
   message.error({
     content,
+    duration: 4,
     style: {
       marginTop: '20vh',
     },

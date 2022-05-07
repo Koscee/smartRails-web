@@ -8,9 +8,14 @@ import { deleteTrainType } from '../../../actions/trainTypeAction';
 import defineTrainTypeTableColumns from './trainTypeTableColumns';
 import AddTrainTypeForm from './AddTrainTypeForm';
 import UpdateTrainTypeForm from './UpdateTrainTypeForm';
+import { AuthContext } from '../../../contexts/AuthContext';
+import { isSuperAdmin } from '../../../utils/permissionCheck';
 
 function TrainTypesList() {
   const { trainTypes, dispatch } = useContext(TrainTypeContext);
+  const { authData } = useContext(AuthContext);
+  const { user } = authData;
+  const hasRoleSuperAdmin = isSuperAdmin(user.role);
 
   const [addModalVisible, setAddModalVisible] = useState(false);
   const [editModalVisible, setEditModalVisible] = useState(false);
@@ -40,17 +45,20 @@ function TrainTypesList() {
   };
 
   const columns = defineTrainTypeTableColumns(
+    hasRoleSuperAdmin,
     trainTypes,
     showEditModal,
     setSelectedItem,
     handleDelete
-  );
+  ).flat();
 
   return trainTypes?.length < 1 ? (
     <LoadingSpinner />
   ) : (
     <div>
-      <AddButton text="Add Type" onClick={showAddModal} />
+      {hasRoleSuperAdmin && (
+        <AddButton text="Add Type" onClick={showAddModal} />
+      )}
 
       <CustomModal
         title="Add New Train Class"

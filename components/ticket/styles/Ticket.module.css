@@ -125,6 +125,22 @@
   font-weight: 600;
 }
 
+.ticket_footer_ticketNo {
+  padding-top: 0;
+  transform: translateY(-8px);
+  font-size: 1.08em;
+  font-weight: 400;
+  color: var(--grey-4);
+  letter-spacing: 1px;
+}
+.ticket_footer_ticketNo span:first-child {
+  font-weight: 500;
+  color: var(--grey-3);
+}
+.ticket_footer_ticketNo > span {
+  letter-spacing: 0.5px;
+}
+
 .vertical_divider,
 .horizontal_divider {
   border-width: 1px;

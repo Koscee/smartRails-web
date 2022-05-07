@@ -1,6 +1,6 @@
 import { openNotificationWithIcon } from '../utils/actionMessages';
 import smartrailsApi from '../utils/apiConfig';
-import { CONFIRM_PAYMENT, GET_BOOKINGS } from './types';
+import { CONFIRM_PAYMENT, GET_BOOKINGS, RESET_DETAILS } from './types';
 
 export const getBookings = async (dispatch) => {
   // make get request to /api/bookings
@@ -29,6 +29,8 @@ export const addBooking = async (
     dispatch({ type: CONFIRM_PAYMENT, payload: res.data });
     setProcessing(false);
     nextStep();
+    // clear passernger and selected journey info from the context object
+    dispatch({ type: RESET_DETAILS });
   } catch (err) {
     const errorsMssg = err.response?.data.error.message;
     console.log(errorsMssg);
@@ -37,16 +39,14 @@ export const addBooking = async (
   }
 };
 
-export const cancelBooking = async (dispatch, bookingId, closeModal) => {
+export const cancelBooking = async (bookingId, closeModal, dispatch) => {
   // make put request to /api/bookings/cancel/:id
   try {
-    // setTimeout(() => {
-    //   console.log('CANCEL SUCCESSFUL');
-    //   closeModal();
-    // }, 3000);
     await smartrailsApi.get(`/api/bookings/cancel/${bookingId}`);
     openNotificationWithIcon('success', 'Cancelled order successfully!');
-    getBookings(dispatch);
+    if (dispatch) {
+      getBookings(dispatch);
+    }
     closeModal();
   } catch (err) {
     const errorsMssg = err.response?.data.error.message;

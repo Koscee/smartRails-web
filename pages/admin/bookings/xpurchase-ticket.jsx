@@ -5,7 +5,7 @@ import styles from '../../../styles/BookTicket.module.css';
 function AdminBookTicketPage() {
   return (
     <div className={styles.container}>
-      <BookTicket styles={styles} />
+      <BookTicket />
     </div>
   );
 }

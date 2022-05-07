@@ -6,6 +6,7 @@ import {
   PayCircleOutlined,
   SolutionOutlined,
 } from '@ant-design/icons';
+import styles from '../../styles/BookTicket.module.css';
 import ConfirmDetails from './ConfirmDetails';
 import Payment from './Payment';
 import AddPassenger from './AddPassenger';
@@ -36,7 +37,7 @@ const steps = [
   },
 ];
 
-function BookTicket({ styles }) {
+function BookTicket() {
   const [current, setCurrent] = useState(0);
 
   const next = () => {

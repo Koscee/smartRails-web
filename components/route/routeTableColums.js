@@ -2,6 +2,7 @@ import { Tag } from 'antd';
 import { DeleteButton, EditButton, RowButtonWrapper } from '../buttons';
 
 export default function defineRouteTableColumns(
+  hasRoleSuperAdmin,
   routesList,
   stationsList,
   showEditModal,
@@ -64,23 +65,25 @@ export default function defineRouteTableColumns(
       sorter: (a, b) => a.total_dist - b.total_dist,
     },
 
-    {
-      title: 'Action',
-      dataIndex: 'action',
-      width: 110,
-      render: (_, record) =>
-        routesList?.length >= 1 ? (
-          <RowButtonWrapper size="middle">
-            <EditButton
-              onClick={() => {
-                setSelectedItem(record);
-                showEditModal();
-              }}
-            />
+    hasRoleSuperAdmin
+      ? {
+          title: 'Action',
+          dataIndex: 'action',
+          width: 110,
+          render: (_, record) =>
+            routesList?.length >= 1 ? (
+              <RowButtonWrapper size="middle">
+                <EditButton
+                  onClick={() => {
+                    setSelectedItem(record);
+                    showEditModal();
+                  }}
+                />
 
-            <DeleteButton onConfirm={() => handleDelete(record._id)} />
-          </RowButtonWrapper>
-        ) : null,
-    },
+                <DeleteButton onConfirm={() => handleDelete(record._id)} />
+              </RowButtonWrapper>
+            ) : null,
+        }
+      : [],
   ];
 }

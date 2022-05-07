@@ -1,0 +1,16 @@
+.container {
+  background-image: url('/assets/train-image.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background-main);
+  opacity: 0.8;
+}

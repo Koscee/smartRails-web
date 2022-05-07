@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Table } from 'antd';
+import { AuthContext } from '../../contexts/AuthContext';
 import { StationContext } from '../../contexts/StationContex';
 import defineStationTableColumns from './stationTableColumns';
 import AddStationForm from './AddStationForm';
@@ -8,9 +9,13 @@ import { deleteStation } from '../../actions/stationActions';
 import CustomModal from '../CustomModal';
 import { AddButton } from '../buttons';
 import LoadingSpinner from '../LoadingSpinner';
+import { isSuperAdmin } from '../../utils/permissionCheck';
 
 function StationsList() {
   const { stations, cities, dispatch } = useContext(StationContext);
+  const { authData } = useContext(AuthContext);
+  const { user } = authData;
+  const hasRoleSuperAdmin = isSuperAdmin(user.role);
 
   const [addModalVisible, setAddModalVisible] = useState(false);
   const [editModalVisible, setEditModalVisible] = useState(false);
@@ -41,17 +46,20 @@ function StationsList() {
   };
 
   const columns = defineStationTableColumns(
+    hasRoleSuperAdmin,
     stations,
     showEditModal,
     setSelectedItem,
     handleDelete
-  );
+  ).flat();
 
   return stations?.length < 1 ? (
     <LoadingSpinner />
   ) : (
     <div>
-      <AddButton text="Add Station" onClick={showAddModal} />
+      {hasRoleSuperAdmin && (
+        <AddButton text="Add Station" onClick={showAddModal} />
+      )}
 
       <CustomModal
         title="Add New Station"

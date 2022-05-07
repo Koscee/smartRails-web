@@ -1,6 +1,26 @@
-.layout_background {
-  background: none;
-  /* background: #fff; */
-  /* background: transparent; */
-  border: 0.1px solid rgb(228, 228, 228);
+.statistic_section {
+  margin-bottom: 5rem;
+}
+
+.statistic_section_row {
+  margin-bottom: 2.3rem;
+}
+
+.statistic_section_row > * > div {
+  padding: 15px 15px;
+  border: var(--border-thin);
+  border-radius: 5px;
+  box-shadow: var(--box-shadow-main);
+}
+
+.statistic_section_inventory_action {
+  text-align: start;
+}
+
+.latest_schedules {
+  margin: 1rem 0;
+}
+
+.latest_schedules > h3 {
+  margin: 1rem 0;
 }

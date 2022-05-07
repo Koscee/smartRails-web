@@ -4,11 +4,19 @@ import { useRouter } from 'next/router';
 
 import { TicketPurchaseContext } from '../../contexts/TicketPurchaseContext';
 import LoadingSpinner from '../LoadingSpinner';
+import { AuthContext } from '../../contexts/AuthContext';
+import { isSuperOrBasicAdmin } from '../../utils/permissionCheck';
 
 function PaymentSuccess() {
-  const { purchaseInfo } = useContext(TicketPurchaseContext);
   const router = useRouter();
+  const { purchaseInfo } = useContext(TicketPurchaseContext);
   const { order } = purchaseInfo;
+  const { authData } = useContext(AuthContext);
+  const { user } = authData;
+
+  const pathName = isSuperOrBasicAdmin(user.role)
+    ? '/admin/bookings'
+    : '/profile/my-bookings';
 
   return !order?._id ? (
     <LoadingSpinner tip="loading..." size="large" />
@@ -17,12 +25,9 @@ function PaymentSuccess() {
       status="success"
       title="Successfully Purchased Ticket!"
       subTitle={`Order number: ${order._id} Click "View Ticket" to download or print ticket.`}
-      // the home button should be dynamic depending on the logged in user
-      // if user go to user bookings list pg if admin go to admin booking list pg
-      // use the router func so that user cannot click on the back button
       extra={[
-        <Button key="home" onClick={() => router.replace('/')}>
-          Home
+        <Button key="home" onClick={() => router.replace(pathName)}>
+          Bookings
         </Button>,
         <Button
           type="primary"

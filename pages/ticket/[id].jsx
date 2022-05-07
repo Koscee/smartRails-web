@@ -1,3 +1,4 @@
+import moment from 'moment';
 import React, { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { useRouter } from 'next/router';
@@ -5,7 +6,9 @@ import { Button } from 'antd';
 import { PrinterOutlined } from '@ant-design/icons';
 import { getBooking } from '../../actions/bookingActions';
 import { Ticket } from '../../components/ticket';
-import LoadingSpinner from '../../components/LoadingSpinner';
+import { PageCenterWrapper } from '../../components/Layouts';
+import TICKET_STATUS from '../../utils/ticketStatus';
+import PageLoading from '../../components/PageLoading';
 
 function TicketPage({ orderDetails }) {
   const ticketRef = useRef();
@@ -16,15 +19,11 @@ function TicketPage({ orderDetails }) {
   const router = useRouter();
 
   if (router.isFallback) {
-    return (
-      <div className="screen-wrapper">
-        <LoadingSpinner size="large" />
-      </div>
-    );
+    return <PageLoading />;
   }
 
   return (
-    <div className="screen-wrapper">
+    <PageCenterWrapper>
       <Ticket details={orderDetails} ref={ticketRef} />
       <Button
         type="primary"
@@ -34,7 +33,7 @@ function TicketPage({ orderDetails }) {
       >
         Print
       </Button>
-    </div>
+    </PageCenterWrapper>
   );
 }
 
@@ -51,7 +50,12 @@ export async function getStaticProps({ params }) {
   const { id } = params;
   const orderDetails = await getBooking(id);
 
-  if (!orderDetails || orderDetails.status !== 'complete') {
+  if (
+    !orderDetails ||
+    orderDetails.status !== TICKET_STATUS.complete.name ||
+    // temporary check for expired tickets
+    moment(orderDetails.schedule.dep_date).diff(moment(), 'days') < 0
+  ) {
     return { notFound: true };
   }
 

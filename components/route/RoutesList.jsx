@@ -4,13 +4,18 @@ import CustomModal from '../CustomModal';
 import UpdateRouteForm from './UpdateRouteForm';
 import AddRouteForm from './AddRouteForm';
 import defineRouteTableColumns from './routeTableColums';
+import { AuthContext } from '../../contexts/AuthContext';
 import { RouteContext } from '../../contexts/RouteContex';
 import { deleteRoute } from '../../actions/routeActions';
 import { AddButton } from '../buttons';
 import LoadingSpinner from '../LoadingSpinner';
+import { isSuperAdmin } from '../../utils/permissionCheck';
 
 function RoutesList() {
   const { routes, stations, dispatch } = useContext(RouteContext);
+  const { authData } = useContext(AuthContext);
+  const { user } = authData;
+  const hasRoleSuperAdmin = isSuperAdmin(user.role);
 
   const [addModalVisible, setAddModalVisible] = useState(false);
   const [editModalVisible, setEditModalVisible] = useState(false);
@@ -40,18 +45,21 @@ function RoutesList() {
   };
 
   const columns = defineRouteTableColumns(
+    hasRoleSuperAdmin,
     routes,
     stations,
     showEditModal,
     setSelectedItem,
     handleDelete
-  );
+  ).flat();
 
   return routes?.length < 1 ? (
     <LoadingSpinner />
   ) : (
     <div>
-      <AddButton text="Add Route" onClick={showAddModal} />
+      {hasRoleSuperAdmin && (
+        <AddButton text="Add Route" onClick={showAddModal} />
+      )}
 
       <CustomModal
         title="Add New Route"

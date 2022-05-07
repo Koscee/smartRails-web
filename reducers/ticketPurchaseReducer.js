@@ -2,6 +2,7 @@ import {
   ADD_PASSENGER_INFO,
   CHOOSE_TICKET,
   CONFIRM_PAYMENT,
+  RESET_DETAILS,
 } from '../actions/types';
 
 const initialState = {
@@ -30,6 +31,14 @@ export default function ticketPurchaseReducer(state = initialState, action) {
       return {
         ...state,
         order: action.payload,
+      };
+
+    case RESET_DETAILS:
+      return {
+        ...state,
+        schedule: {},
+        selectedTicket: {},
+        passenger: {},
       };
 
     default:

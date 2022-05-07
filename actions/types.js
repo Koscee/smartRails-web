@@ -50,3 +50,9 @@ export const CANCEL_BOOKING = 'CANCEL_BOOKING';
 export const CHOOSE_TICKET = 'CHOOSE_TICKET';
 export const ADD_PASSENGER_INFO = 'ADD_PASSENGER_INFO';
 export const CONFIRM_PAYMENT = 'CONFIRM_PAYMENT';
+export const RESET_DETAILS = 'RESET_DETAILS';
+
+// Types for authentication actions
+export const LOAD_AUTH_CONTEXT = 'LOAD_AUTH_CONTEXT';
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+export const LOGOUT_USER = 'LOGOUT_USER';

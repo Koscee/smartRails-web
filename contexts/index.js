@@ -5,3 +5,4 @@ export { default as TrainProvider } from './TrainContext';
 export { default as PassengerProvider } from './PassengerContext';
 export { default as BookingProvider } from './BookingContext';
 export { default as TicketPurchaseProvider } from './TicketPurchaseContext';
+export { default as AuthProvider } from './AuthContext';

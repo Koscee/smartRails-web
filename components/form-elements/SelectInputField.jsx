@@ -6,6 +6,7 @@ function SelectInputField({
   label,
   name,
   placeholder,
+  className,
   fieldTooltip,
   labelHasColon,
   rules,
@@ -21,6 +22,7 @@ function SelectInputField({
     <FormItem
       label={label}
       name={name}
+      className={className}
       tooltip={fieldTooltip}
       colon={labelHasColon}
       rules={rules}

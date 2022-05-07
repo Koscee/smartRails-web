@@ -1,0 +1,92 @@
+.form {
+  height: 90px;
+  background: var(--background-1);
+  box-shadow: var(--box-shadow-main);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0 60px;
+}
+
+/* Row */
+.form_row {
+  width: 100%;
+  justify-content: center;
+}
+
+/* All Columns in the row */
+.form_row > * {
+  background: var(--background-3);
+  border: var(--border-thin);
+  margin-left: -1px;
+}
+
+/* All child divs in each colums */
+.form_row > * > div {
+  margin-bottom: 0;
+}
+
+/* Form.Item */
+
+.form_row > *:not(:last-child) {
+  border-right: 1px solid var(--grey-2);
+}
+
+.form_row > *:last-child,
+.search_btn {
+  height: 52px;
+  border: none;
+}
+
+.form_row > *:first-child {
+  border-radius: 6px 0 0 6px;
+}
+
+.search_btn {
+  border-radius: 0 6px 6px 0;
+}
+
+.search_btn span {
+  margin-left: 0 !important;
+  transform: translateY(0px) !important;
+}
+
+.date_picker,
+.search_btn {
+  width: 100%;
+}
+
+.input_item > :first-child {
+  padding-bottom: 2px !important;
+}
+
+/* Error message div */
+.input_item > :last-child > :nth-child(2) {
+  position: absolute;
+  top: 22px;
+  line-height: 1.7;
+}
+
+.input_item > :last-child div span {
+  padding-top: 1px;
+}
+
+.input_item > :last-child div span,
+.date_picker > div input {
+  font-size: 1.04em;
+  font-weight: 500;
+  margin-left: 12px;
+  transform: translateY(-4px);
+}
+
+.input_label_icon,
+.input_label_text {
+  color: var(--grey-3);
+  font-size: 1.02em;
+  margin-left: 5px;
+}
+
+.input_label_text {
+  font-weight: 400;
+}

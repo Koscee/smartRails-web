@@ -1,10 +1,28 @@
-import React, { createContext, useReducer, useMemo } from 'react';
+import React, {
+  createContext,
+  useEffect,
+  useState,
+  useReducer,
+  useMemo,
+} from 'react';
+import { getStations } from '../actions/stationActions';
 import stationReducer from '../reducers/stationReducer';
+import smartrailsApi from '../utils/apiConfig';
 
 export const StationContext = createContext();
 
-function StationProvider({ stationsList, cities, children }) {
-  const [stations, dispatch] = useReducer(stationReducer, stationsList);
+function StationProvider({ children }) {
+  const [stations, dispatch] = useReducer(stationReducer, []);
+  const [cities, setCities] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      await getStations(dispatch);
+      const res = await smartrailsApi.get('/api/cities');
+      const citiesList = res.data;
+      setCities(citiesList);
+    })();
+  }, []);
 
   const values = useMemo(
     () => ({ stations, cities, dispatch }),

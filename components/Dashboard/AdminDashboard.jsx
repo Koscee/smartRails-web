@@ -12,8 +12,8 @@ import React, { useEffect, useState } from 'react';
 import styles from './admin-dashboard.module.css';
 import TrainSvg from '../../public/assets/train.svg';
 import { defineSchedulesTableColumns } from '../schedule';
-import smartrailsApi from '../../utils/apiConfig';
 import LoadingSpinner from '../LoadingSpinner';
+import getSystemRecordsSummary from '../../actions/dashboardActions';
 
 export default function AdminDashboard() {
   const [summary, setSummary] = useState(null);
@@ -21,8 +21,8 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     (async () => {
-      const res = await smartrailsApi.get('/api/records/summary');
-      setSummary(res.data);
+      const data = await getSystemRecordsSummary();
+      setSummary(data);
     })();
   }, []);
 
@@ -39,7 +39,7 @@ export default function AdminDashboard() {
               <Col span={10}>
                 <Statistic
                   title="Revenue (CNY)"
-                  value={dataStatistic.totalRevenue}
+                  value={dataStatistic.totalRevenue || 0}
                   precision={2}
                 />
               </Col>
@@ -49,7 +49,7 @@ export default function AdminDashboard() {
               >
                 <Statistic
                   title="Purchases"
-                  value={dataStatistic.purchaseRate}
+                  value={dataStatistic.purchaseRate || 0}
                   precision={2}
                   valueStyle={{ color: '#3f8600', fontSize: '1.2em' }}
                   prefix={<ArrowUpOutlined />}
@@ -62,7 +62,7 @@ export default function AdminDashboard() {
               >
                 <Statistic
                   title="Refunds"
-                  value={dataStatistic.refundRate}
+                  value={dataStatistic.refundRate || 0}
                   precision={2}
                   valueStyle={{ color: '#cf1322', fontSize: '1.2em' }}
                   prefix={<ArrowDownOutlined />}

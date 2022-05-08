@@ -14,7 +14,6 @@ function UpdateStationForm({ stationId, cities, closeForm }) {
   useEffect(() => {
     (async () => {
       const station = await getStation(stationId);
-      console.log('UPDATE FORM Data', station);
       setStationData({
         ...station,
         lat: station?.location?.coordinates[1],
@@ -35,10 +34,6 @@ function UpdateStationForm({ stationId, cities, closeForm }) {
     );
   };
 
-  const onFormSubmitFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
-
   // render component
   return !Object.keys(stationData).length ? (
     <LoadingSpinner />
@@ -47,7 +42,6 @@ function UpdateStationForm({ stationId, cities, closeForm }) {
       name="updateStation"
       formInitialValues={stationData}
       onFormSubmit={onFormSubmit}
-      onFormSubmitFailed={onFormSubmitFailed}
       validationFields={[
         // atleast one field needs to be touched for update to occur
         'en_name',

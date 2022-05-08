@@ -16,12 +16,8 @@ function AddTrainForm() {
     const formData = values;
     const { name: trainClass } = trainTypesMapData.get(values.service_class);
     formData.train_no = `${trainClass}${values.train_no}`;
-    console.log(formData);
-    await addTrain(dispatch, formData, form, setBtnLoading);
-  };
 
-  const onFormSubmitFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
+    await addTrain(dispatch, formData, form, setBtnLoading);
   };
 
   const formInitialValues = {
@@ -37,7 +33,6 @@ function AddTrainForm() {
       name="addTrain"
       formInitialValues={formInitialValues}
       onFormSubmit={onFormSubmit}
-      onFormSubmitFailed={onFormSubmitFailed}
       validationFields={['service_class', 'train_no', 'route', 'carriages']}
       submitBtnLoading={btnLoading}
     >

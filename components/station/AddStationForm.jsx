@@ -34,10 +34,6 @@ function AddStationForm({ cities }) {
     await addStation(dispatch, formData, form, setBtnLoading);
   };
 
-  const onFormSubmitFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
-
   const formInitialValues = {
     en_name: '',
     cn_name: '',
@@ -59,7 +55,6 @@ function AddStationForm({ cities }) {
       name="addStation"
       formInitialValues={formInitialValues}
       onFormSubmit={onFormSubmit}
-      onFormSubmitFailed={onFormSubmitFailed}
       validationFields={['en_name', 'type', 'city']}
       checkAllFieldsTouched
       submitBtnLoading={btnLoading}

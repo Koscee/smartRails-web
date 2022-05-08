@@ -28,12 +28,12 @@ export const login = async (dispatch, userDetails, setBtnLoading, router) => {
     // decode token using jwt-decode package library
     const decoded = jwtDecode(token);
 
-    // dispatch SET_CURRENT_USER action
-    dispatch({ type: SET_CURRENT_USER, payload: { success, user: decoded } });
     // set submit button loading state
     setBtnLoading(false);
+    // dispatch SET_CURRENT_USER action
+    dispatch({ type: SET_CURRENT_USER, payload: { success, user: decoded } });
 
-    // if its an admin redirect to admin dashboard, else  redirect to home
+    // if its an admin redirect to admin dashboard, else redirect to home
     if (isSuperOrBasicAdmin(decoded.role)) {
       router.replace('/admin/dashboard');
     } else {
@@ -52,8 +52,7 @@ export const register = async (endpoint, formData, setBtnLoading, router) => {
   try {
     setBtnLoading(true);
     // send data to server endpoint
-    const res = await smartrailsApi.post(endpoint, formData);
-    console.log('NEW USER: ', res.data);
+    await smartrailsApi.post(endpoint, formData);
     setBtnLoading(false);
     // redirect to login page
     router.push('/account/login');

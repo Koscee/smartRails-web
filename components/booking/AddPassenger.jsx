@@ -9,7 +9,6 @@ function AddPassenger({ nextStep }) {
   const { passenger } = purchaseInfo;
 
   const handleFormSubmit = (formData) => {
-    console.log('PSSNGR INFO', formData);
     dispatch({ type: ADD_PASSENGER_INFO, payload: formData });
     nextStep();
   };

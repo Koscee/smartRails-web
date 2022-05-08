@@ -14,10 +14,6 @@ function AddTrainTypeForm() {
     await addTrainType(dispatch, formData, form, setBtnLoading);
   };
 
-  const onFormSubmitFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
-
   const formInitialValues = {
     name: '',
     max_speed: '',
@@ -33,7 +29,6 @@ function AddTrainTypeForm() {
       name="addTrainType"
       formInitialValues={formInitialValues}
       onFormSubmit={onFormSubmit}
-      onFormSubmitFailed={onFormSubmitFailed}
       validationFields={['name', 'max_speed', 'rail_type', 'seat_types']}
       checkAllFieldsTouched
       submitBtnLoading={btnLoading}

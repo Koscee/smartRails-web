@@ -18,7 +18,6 @@ function UpdateTrainForm({ trainId, closeForm }) {
     (async () => {
       const train = await getTrain(trainId);
       train.train_no = train.train_no.slice(1);
-      console.log('UPDATE FORM Data', train);
       setTrainData(train);
     })();
   }, [trainId]);
@@ -27,12 +26,7 @@ function UpdateTrainForm({ trainId, closeForm }) {
     const formData = values;
     const { name: trainClass } = trainTypesMapData.get(values.service_class);
     formData.train_no = `${trainClass}${values.train_no}`;
-    console.log('UPDATE TRAIN', formData);
     await updateTrain(dispatch, trainId, formData, closeForm, setBtnLoading);
-  };
-
-  const onFormSubmitFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
   };
 
   // render component
@@ -43,7 +37,6 @@ function UpdateTrainForm({ trainId, closeForm }) {
       name="updateTrain"
       formInitialValues={trainData}
       onFormSubmit={onFormSubmit}
-      onFormSubmitFailed={onFormSubmitFailed}
       validationFields={['service_class', 'train_no', 'route', 'carriages']}
       submitBtnLoading={btnLoading}
     >

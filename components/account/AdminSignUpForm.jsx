@@ -25,7 +25,6 @@ function AdminSignUpForm() {
   const router = useRouter();
 
   const handleFormSubmit = (formData, setBtnLoading) => {
-    console.log('FORM_VALUES: ', formData);
     registerAdmin(formData, setBtnLoading, router);
   };
 

@@ -19,7 +19,6 @@ function FormContainer({
 
   useEffect(() => {
     forceUpdate({});
-    console.log('FORM Loaded');
   }, []);
 
   const gridPosition = { labelCol: { span: 6 }, wrapperCol: { span: 14 } };

@@ -174,7 +174,6 @@
 }
 
 /* For Printing */
-
 @media print and (color) {
   @page {
     margin: 80px 20px;

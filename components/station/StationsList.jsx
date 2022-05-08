@@ -26,7 +26,6 @@ function StationsList() {
   };
 
   const onAddFormModalCancel = () => {
-    console.log('Clicked cancel button');
     setAddModalVisible(false);
   };
 
@@ -35,14 +34,11 @@ function StationsList() {
   };
 
   const onEditFormModalCancel = () => {
-    console.log('Clicked cancel button');
     setEditModalVisible(false);
   };
 
   const handleDelete = (id) => {
-    console.log(id);
     deleteStation(dispatch, id);
-    // stations.filter((item) => item._id !== id);
   };
 
   const columns = defineStationTableColumns(
@@ -53,7 +49,7 @@ function StationsList() {
     handleDelete
   ).flat();
 
-  return stations?.length < 1 ? (
+  return !stations ? (
     <LoadingSpinner />
   ) : (
     <div>

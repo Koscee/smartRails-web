@@ -39,8 +39,6 @@ function AdminSearchJourneyForm() {
     setLoading({ searchBtn: true, table: true });
     // call getSchedules action.
     const foundAvailableTickets = await getSchedules(searchQuery);
-    console.log(searchQuery);
-    console.log(foundAvailableTickets);
 
     setAvailableTickets(foundAvailableTickets);
     // unset loading

@@ -13,10 +13,6 @@ function AddRouteForm({ stations }) {
     await addRoute(dispatch, formData, form, setBtnLoading);
   };
 
-  const onFormSubmitFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
-
   const formInitialValues = {
     start_station: undefined,
     end_station: undefined,
@@ -29,7 +25,6 @@ function AddRouteForm({ stations }) {
       name="addRoute"
       formInitialValues={formInitialValues}
       onFormSubmit={onFormSubmit}
-      onFormSubmitFailed={onFormSubmitFailed}
       validationFields={['start_station', 'end_station']}
       checkAllFieldsTouched
       submitBtnLoading={btnLoading}

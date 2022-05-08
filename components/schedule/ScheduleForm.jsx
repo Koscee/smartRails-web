@@ -5,10 +5,6 @@ import { FormContainer } from '../form-elements';
 import ScheduleFormFields from './ScheduleFormFields';
 
 function ScheduleForm({ name, onFormSubmit, submitBtnLoading }) {
-  const onFormSubmitFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
-
   const formInitialValues = {
     train_no: '',
     startDate: moment().add(1, 'day'),
@@ -26,7 +22,6 @@ function ScheduleForm({ name, onFormSubmit, submitBtnLoading }) {
         formData.startTime = formData.startTime.format(TIME_FORMAT);
         onFormSubmit(formData, form);
       }}
-      onFormSubmitFailed={onFormSubmitFailed}
       validationFields={['train_no', 'startTime']}
       checkAllFieldsTouched
       submitBtnLoading={submitBtnLoading}

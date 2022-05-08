@@ -14,7 +14,6 @@ function UpdateRouteForm({ routeId, stations, closeForm }) {
   useEffect(() => {
     (async () => {
       const route = await getRoute(routeId);
-      console.log('UPDATE FORM Data', route);
       setRouteData(route);
     })();
   }, [routeId]);
@@ -22,10 +21,6 @@ function UpdateRouteForm({ routeId, stations, closeForm }) {
   const onFormSubmit = async (values, form) => {
     const formData = values;
     await updateRoute(dispatch, routeId, formData, closeForm, setBtnLoading);
-  };
-
-  const onFormSubmitFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
   };
 
   // render component
@@ -36,7 +31,6 @@ function UpdateRouteForm({ routeId, stations, closeForm }) {
       name="updateRoute"
       formInitialValues={routeData}
       onFormSubmit={onFormSubmit}
-      onFormSubmitFailed={onFormSubmitFailed}
       // atleast one field needs to be touched for update to occur
       validationFields={['start_station', 'end_station', 'stops']}
       submitBtnLoading={btnLoading}

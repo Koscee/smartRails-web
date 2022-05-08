@@ -4,7 +4,6 @@ import jwtDecode from 'jwt-decode';
 import { authReducer } from '../reducers';
 import { LOAD_AUTH_CONTEXT, SET_CURRENT_USER } from '../actions/types';
 import { logout } from '../actions/authActions';
-import setAuthHeader from '../utils/setAuthHeader';
 import PageLoading from '../components/PageLoading';
 
 export const AuthContext = createContext();
@@ -24,7 +23,6 @@ function AuthProvider({ children }) {
     const token = localStorage.jwtToken;
 
     if (token) {
-      //   setAuthHeader(token);
       const decoded = jwtDecode(token);
       dispatch({
         type: SET_CURRENT_USER,
@@ -39,8 +37,6 @@ function AuthProvider({ children }) {
       dispatch({ type: LOAD_AUTH_CONTEXT, payload: false });
     }
   }, [router]);
-
-  console.log('AUTH_DATA: ', authData);
 
   if (authData.loading) {
     return <PageLoading />;

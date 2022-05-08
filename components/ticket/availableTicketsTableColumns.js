@@ -99,8 +99,6 @@ export default function defineAvailableTicketsTableColumns(handleBookBtnClick) {
                       ticket.is_available && '1px solid var(--accent-light)',
                   }}
                   onClick={() => {
-                    console.log('TICKET', ticket);
-                    console.log('RECORD', record);
                     handleBookBtnClick(record, ticket);
                   }}
                 >

@@ -16,7 +16,6 @@ function UpdateTrainTypeForm({ trainTypeId, closeForm }) {
   useEffect(() => {
     (async () => {
       const trainType = await getTrainType(trainTypeId);
-      console.log('UPDATE FORM Data', trainType);
       setTrainTypeData(trainType);
     })();
   }, [trainTypeId]);
@@ -33,10 +32,6 @@ function UpdateTrainTypeForm({ trainTypeId, closeForm }) {
     );
   };
 
-  const onFormSubmitFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
-
   // render component
   return !Object.keys(trainTypeData).length ? (
     <LoadingSpinner />
@@ -45,7 +40,6 @@ function UpdateTrainTypeForm({ trainTypeId, closeForm }) {
       name="updateTrainType"
       formInitialValues={trainTypeData}
       onFormSubmit={onFormSubmit}
-      onFormSubmitFailed={onFormSubmitFailed}
       // atleast one field needs to be touched for update to occur
       validationFields={[
         'name',

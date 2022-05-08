@@ -11,10 +11,6 @@ function PassengerForm({
   optionalFields = [],
   checkAllFieldsTouched,
 }) {
-  const onFormSubmitFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
-
   // render component
   return (
     <FormContainer
@@ -26,7 +22,6 @@ function PassengerForm({
         formData.ID_exp_date = formData.ID_exp_date.format(DATE_FORMAT);
         onFormSubmit(formData, form);
       }}
-      onFormSubmitFailed={onFormSubmitFailed}
       validationFields={[
         'first_name',
         'last_name',

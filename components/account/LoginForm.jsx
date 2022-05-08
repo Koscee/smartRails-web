@@ -10,7 +10,6 @@ function LoginForm() {
   const router = useRouter();
 
   const handleFormSubmit = (formData, setBtnLoading) => {
-    console.log('FORM_VALUES: ', formData);
     login(dispatch, formData, setBtnLoading, router);
   };
 

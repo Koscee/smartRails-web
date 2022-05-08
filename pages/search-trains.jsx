@@ -14,6 +14,7 @@ function SearchTrainsPage() {
   const router = useRouter();
   const { query } = router;
   const hasQuery = Object.keys(query).length > 0;
+
   const { setLoading, setAvailableTickets } = useContext(TicketPurchaseContext);
   const [journey, setJourney] = useState({
     from: query?.from || '',

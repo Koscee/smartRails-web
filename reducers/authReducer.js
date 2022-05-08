@@ -21,7 +21,7 @@ export default function authReducer(state, action) {
       return {
         ...state,
         isAuthenticated: isValidToken(action.payload),
-        // loading: false,
+        loading: true,
         user: null,
       };
 

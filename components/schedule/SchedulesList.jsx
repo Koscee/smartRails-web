@@ -42,7 +42,6 @@ function SchedulesList() {
     setLoading({ searchBtn: true, table: true });
     // call getSchedules action.
     const foundSchedules = await getSchedules({ train_no: value });
-    console.log(value);
 
     if (foundSchedules.length < 1) {
       // set empty data message
@@ -58,7 +57,6 @@ function SchedulesList() {
   };
 
   const onAddFormModalCancel = () => {
-    console.log('Clicked cancel button');
     setAddModalVisible(false);
   };
 
@@ -67,7 +65,6 @@ function SchedulesList() {
   };
 
   const onEditFormModalCancel = () => {
-    console.log('Clicked cancel button');
     setEditModalVisible(false);
   };
 

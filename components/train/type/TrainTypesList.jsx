@@ -26,7 +26,6 @@ function TrainTypesList() {
   };
 
   const onAddFormModalCancel = () => {
-    console.log('Clicked cancel button');
     setAddModalVisible(false);
   };
 
@@ -35,12 +34,10 @@ function TrainTypesList() {
   };
 
   const onEditFormModalCancel = () => {
-    console.log('Clicked cancel button');
     setEditModalVisible(false);
   };
 
   const handleDelete = (id) => {
-    console.log(id);
     deleteTrainType(dispatch, id);
   };
 
@@ -52,7 +49,7 @@ function TrainTypesList() {
     handleDelete
   ).flat();
 
-  return trainTypes?.length < 1 ? (
+  return !trainTypes ? (
     <LoadingSpinner />
   ) : (
     <div>

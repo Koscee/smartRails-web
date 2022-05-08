@@ -19,7 +19,6 @@ function TrainFormFields({ trainTypes, routes }) {
   const typeId = form.getFieldValue('service_class');
   const trainType = trainTypes.get(typeId);
 
-  console.log('INITIALOPTIONS', trainType);
   const [train, setTrain] = useState({
     typeOptions: {},
     type: trainType?.name || '',
@@ -29,14 +28,13 @@ function TrainFormFields({ trainTypes, routes }) {
   const onSelectTrainClass = (value) => {
     const selectedTrainType = trainTypes.get(value);
     const { name, seat_types } = selectedTrainType;
-    // setTrainClass(selectedTrainClass.name);
+
     setTrain({
       ...train,
       typeOptions: selectedTrainType,
       type: name,
       seatTypes: seat_types,
     });
-    // setSeatOptions(selectedTrainClass.seat_types);
   };
 
   const renderTrainClassOptions = () => {
@@ -58,14 +56,12 @@ function TrainFormFields({ trainTypes, routes }) {
       return;
     }
     form.setFieldsValue({ train_no: num });
-    console.log('FORM INSTANCE', num);
   };
 
   const checkTrainNumber = async (_, value) => {
     if (value >= MIN_TRAIN_NO && value <= MAX_TRAIN_NO) {
       return Promise.resolve();
     }
-    console.log('WRONG VALUE', value);
     return Promise.reject(
       new Error(
         `Train number must be between ${MIN_TRAIN_NO} - ${MAX_TRAIN_NO}!`
@@ -76,8 +72,6 @@ function TrainFormFields({ trainTypes, routes }) {
   const onSelectSeatType = () => {
     const newSet = new Set(train.typeOptions.seat_types);
     form.getFieldValue('carriages').forEach((c) => newSet.delete(c?.seat_type));
-
-    console.log(newSet);
     setTrain({ ...train, seatTypes: [...newSet] });
   };
 

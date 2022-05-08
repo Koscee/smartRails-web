@@ -23,7 +23,6 @@ function TicketPurchaseProvider({ children }) {
     [availableTickets, loading, purchaseInfo]
   );
 
-  console.log('DISPATCH', purchaseInfo);
   return (
     <TicketPurchaseContext.Provider value={values}>
       {children}

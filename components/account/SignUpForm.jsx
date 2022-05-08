@@ -13,7 +13,6 @@ function SignUpForm() {
   const router = useRouter();
 
   const handleFormSubmit = (formData, setBtnLoading) => {
-    console.log('FORM_VALUES ', formData);
     registerUser(formData, setBtnLoading, router);
   };
 

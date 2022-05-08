@@ -21,7 +21,6 @@ function PassengersList() {
   };
 
   const onAddFormModalCancel = () => {
-    console.log('Clicked cancel button');
     setAddModalVisible(false);
   };
 
@@ -30,12 +29,10 @@ function PassengersList() {
   };
 
   const onEditFormModalCancel = () => {
-    console.log('Clicked cancel button');
     setEditModalVisible(false);
   };
 
   const handleDelete = (id) => {
-    console.log(id);
     deletePassenger(dispatch, id);
   };
 

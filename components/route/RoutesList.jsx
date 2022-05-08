@@ -26,7 +26,6 @@ function RoutesList() {
   };
 
   const onAddFormModalCancel = () => {
-    console.log('Clicked cancel button');
     setAddModalVisible(false);
   };
 
@@ -35,12 +34,10 @@ function RoutesList() {
   };
 
   const onEditFormModalCancel = () => {
-    console.log('Clicked cancel button');
     setEditModalVisible(false);
   };
 
   const handleDelete = (id) => {
-    console.log(id);
     deleteRoute(dispatch, id);
   };
 
@@ -53,7 +50,7 @@ function RoutesList() {
     handleDelete
   ).flat();
 
-  return routes?.length < 1 ? (
+  return !routes ? (
     <LoadingSpinner />
   ) : (
     <div>

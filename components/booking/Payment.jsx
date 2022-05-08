@@ -11,7 +11,6 @@ function Payment({ nextStep, previousStep }) {
   const { schedule, selectedTicket, passenger } = purchaseInfo;
   const [amount, setAmount] = useState();
   const [disabled, setDisabled] = useState(true);
-  //   const [btnLoading, setBtnLoading] = useState(false);
   const [processing, setProcessing] = useState(false);
 
   const handleInputChange = (e) => {
@@ -70,7 +69,6 @@ function Payment({ nextStep, previousStep }) {
             size="large"
             disabled={disabled}
             onClick={handleClick}
-            // loading={btnLoading}
             className={styles.pay_button}
           >
             Pay

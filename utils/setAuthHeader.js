@@ -2,8 +2,8 @@ import smartrailsApi from './apiConfig';
 
 export default function setAuthHeader(token) {
   if (token) {
-    smartrailsApi.defaults.headers.common.Authorization = token;
+    smartrailsApi.defaults.headers.Authorization = token;
   } else {
-    delete smartrailsApi.defaults.headers.common.Authorization;
+    delete smartrailsApi.defaults.headers.Authorization;
   }
 }

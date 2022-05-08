@@ -18,12 +18,10 @@ function BookingsList() {
   };
 
   const onDetailsModalCancel = () => {
-    console.log('Clicked cancel button');
     setDetailsModalVisible(false);
   };
 
   const handleCancelBooking = (order) => {
-    console.log(order);
     confirmCancelBooking(
       order,
       (closeModal) =>

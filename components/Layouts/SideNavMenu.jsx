@@ -14,8 +14,6 @@ function SideNavMenu() {
     defaultOpenKey: '',
   });
 
-  console.log('PATH_NAME', router.pathname);
-
   // returns the active menu based on the current url path
   const getActiveMenu = () => {
     let activeMenuItem = {};
@@ -42,8 +40,6 @@ function SideNavMenu() {
 
   useEffect(() => {
     const { activeMenuItem, defaultOpenMenu } = getActiveMenu();
-    console.log(activeMenuItem);
-    console.log(defaultOpenMenu);
     setActiveMenu({
       selectedKey: activeMenuItem?.key,
       defaultOpenKey: defaultOpenMenu?.key,

@@ -18,7 +18,7 @@ function UpdateRouteForm({ routeId, stations, closeForm }) {
     })();
   }, [routeId]);
 
-  const onFormSubmit = async (values, form) => {
+  const onFormSubmit = async (values) => {
     const formData = values;
     await updateRoute(dispatch, routeId, formData, closeForm, setBtnLoading);
   };

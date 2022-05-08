@@ -23,7 +23,7 @@ function UpdateStationForm({ stationId, cities, closeForm }) {
     })();
   }, [stationId]);
 
-  const onFormSubmit = async (values, form) => {
+  const onFormSubmit = async (values) => {
     const formData = values;
     await updateStation(
       dispatch,

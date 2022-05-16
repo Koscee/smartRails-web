@@ -13,7 +13,7 @@ import { trainReducer } from '../reducers';
 export const TrainContext = createContext();
 
 function TrainProvider({ children }) {
-  const [trains, dispatch] = useReducer(trainReducer, []);
+  const [trains, dispatch] = useReducer(trainReducer, null);
   const [routes, setRoutes] = useState([]);
   const [trainTypes, setTrainTypes] = useState([]);
 

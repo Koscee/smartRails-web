@@ -43,7 +43,7 @@ function RoutesList() {
 
   const columns = defineRouteTableColumns(
     hasRoleSuperAdmin,
-    routes,
+    routes || [],
     stations,
     showEditModal,
     setSelectedItem,

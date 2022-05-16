@@ -12,7 +12,7 @@ import smartrailsApi from '../utils/apiConfig';
 export const StationContext = createContext();
 
 function StationProvider({ children }) {
-  const [stations, dispatch] = useReducer(stationReducer, []);
+  const [stations, dispatch] = useReducer(stationReducer, null);
   const [cities, setCities] = useState([]);
 
   useEffect(() => {

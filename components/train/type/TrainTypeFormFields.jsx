@@ -83,7 +83,9 @@ function TrainTypeFormFields({ defaultRailType }) {
         rules={[{ required: true, message: 'Please select seat types!' }]}
       >
         {seatTypes.map((seatType) => (
-          <Option key={seatType.replace(' ', '-')}>{seatType}</Option>
+          <Option key={seatType.replace(' ', '-')} value={seatType}>
+            {seatType}
+          </Option>
         ))}
       </SelectInputField>
 

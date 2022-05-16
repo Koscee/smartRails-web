@@ -12,7 +12,7 @@ import routeReducer from '../reducers/routeReducer';
 export const RouteContext = createContext();
 
 function RouteProvider({ children }) {
-  const [routes, dispatch] = useReducer(routeReducer, []);
+  const [routes, dispatch] = useReducer(routeReducer, null);
   const [stations, setStations] = useState([]);
 
   useEffect(() => {

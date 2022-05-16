@@ -5,7 +5,7 @@ import { trainTypeReducer } from '../reducers';
 export const TrainTypeContext = createContext();
 
 function TrainTypeProvider({ children }) {
-  const [trainTypes, dispatch] = useReducer(trainTypeReducer, []);
+  const [trainTypes, dispatch] = useReducer(trainTypeReducer, null);
 
   useEffect(() => {
     (async () => {

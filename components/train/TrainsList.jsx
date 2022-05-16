@@ -43,7 +43,7 @@ function TrainsList() {
 
   const columns = defineTrainTableColumns(
     hasRoleSuperAdmin,
-    trains,
+    trains || [],
     trainTypes,
     showEditModal,
     setSelectedItem,

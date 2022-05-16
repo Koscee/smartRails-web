@@ -5,7 +5,7 @@ import { bookingReducer } from '../reducers';
 export const BookingContext = createContext();
 
 function BookingProvider({ children }) {
-  const [bookings, dispatch] = useReducer(bookingReducer, []);
+  const [bookings, dispatch] = useReducer(bookingReducer, null);
 
   // dispatch action to get list of bookings and update the bookings state
   useEffect(() => {

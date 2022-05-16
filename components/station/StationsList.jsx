@@ -43,7 +43,7 @@ function StationsList() {
 
   const columns = defineStationTableColumns(
     hasRoleSuperAdmin,
-    stations,
+    stations || [],
     showEditModal,
     setSelectedItem,
     handleDelete

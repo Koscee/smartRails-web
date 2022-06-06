@@ -37,69 +37,69 @@ Each registered user have a role which represent their level of access to resour
 
 ### Modules Overview
 
-![system-modules](https://t24434348.p.clickup-attachments.com/t24434348/c18a7cd6-1648-4b61-81ca-19f4ed193df7/system%20modules.png)
+![system-modules](https://t24434348.p.clickup-attachments.com/t24434348/c18a7cd6-1648-4b61-81ca-19f4ed193df7/system%20modules.png?view=open)
 
 ### Usecase Diagram
 
-![usecase-diagram](https://t24434348.p.clickup-attachments.com/t24434348/01dd101f-79b8-43a6-8215-d197fe6290ef/usecase%20diagram.png)
+![usecase-diagram](https://t24434348.p.clickup-attachments.com/t24434348/01dd101f-79b8-43a6-8215-d197fe6290ef/usecase%20diagram.png?view=open)
 
 ### Workflow
 
-![system-workflow](https://t24434348.p.clickup-attachments.com/t24434348/c1659ff3-beff-4e4a-a12c-fed49120f941/system%20workflow.png)
+![system-workflow](https://t24434348.p.clickup-attachments.com/t24434348/c1659ff3-beff-4e4a-a12c-fed49120f941/system%20workflow.png?view=open)
 
 ## Pages Screenshots
 
 ### Admin Module:
 
 - #### Dashboard
-  ![admin-dashboard](https://t24434348.p.clickup-attachments.com/t24434348/5fb9eacc-74b3-4fb8-b3f0-c715c7677044/image.png)
+  ![admin-dashboard](https://t24434348.p.clickup-attachments.com/t24434348/5fb9eacc-74b3-4fb8-b3f0-c715c7677044/image.png?view=open)
 - #### Station Management
 
-  ![stations-list-page](https://t24434348.p.clickup-attachments.com/t24434348/83fc96de-7d2e-4965-aa18-b8ef06484ec6/image.png)
+  ![stations-list-page](https://t24434348.p.clickup-attachments.com/t24434348/83fc96de-7d2e-4965-aa18-b8ef06484ec6/image.png?view=open)
 
-  ![update-station-page](https://t24434348.p.clickup-attachments.com/t24434348/d1c7b9ba-f586-4468-b9ec-cb139a503e9f/image.png)
+  ![update-station-page](https://t24434348.p.clickup-attachments.com/t24434348/d1c7b9ba-f586-4468-b9ec-cb139a503e9f/image.png?view=open)
 
 - #### Train Management
 
-  ![trains-list-page](https://t24434348.p.clickup-attachments.com/t24434348/3c99c67e-d6ae-49fa-996c-08ad745b4f8d/image.png)
+  ![trains-list-page](https://t24434348.p.clickup-attachments.com/t24434348/3c99c67e-d6ae-49fa-996c-08ad745b4f8d/image.png?view=open)
 
-  ![update-train-page](https://t24434348.p.clickup-attachments.com/t24434348/981ab690-98f8-4cab-a196-95cb90d75aa9/image.png)
+  ![update-train-page](https://t24434348.p.clickup-attachments.com/t24434348/981ab690-98f8-4cab-a196-95cb90d75aa9/image.png?view=open)
 
 - #### Schedule Management
 
-  ![train-schedules-list-page](https://t24434348.p.clickup-attachments.com/t24434348/85759515-2101-481d-85aa-3bf0c6fb0192/schedules-list.jpeg)
+  ![train-schedules-list-page](https://t24434348.p.clickup-attachments.com/t24434348/85759515-2101-481d-85aa-3bf0c6fb0192/schedules-list.jpeg?view=open)
 
 - #### Booking Management
 
-  ![bookings-list-page](https://t24434348.p.clickup-attachments.com/t24434348/f820a64b-28bb-47d1-905e-2890da60cd6e/image.png)
+  ![bookings-list-page](https://t24434348.p.clickup-attachments.com/t24434348/f820a64b-28bb-47d1-905e-2890da60cd6e/image.png?view=open)
 
-  ![booking-details-page](https://t24434348.p.clickup-attachments.com/t24434348/44794f54-2296-4ad2-9729-ab99f6b6b5a7/image.png)
+  ![booking-details-page](https://t24434348.p.clickup-attachments.com/t24434348/44794f54-2296-4ad2-9729-ab99f6b6b5a7/image.png?view=open)
 
 #
 
 ### User Module:
 
 - #### Home Page
-  ![home-page](https://t24434348.p.clickup-attachments.com/t24434348/7258b492-a50e-486e-ad14-9d516dbeb490/image.png)
+  ![home-page](https://t24434348.p.clickup-attachments.com/t24434348/7258b492-a50e-486e-ad14-9d516dbeb490/image.png?view=open)
 - #### Register
-  ![register-page](https://t24434348.p.clickup-attachments.com/t24434348/8f3446e1-f17b-44a4-a56b-d7591b8b9218/image.png)
+  ![register-page](https://t24434348.p.clickup-attachments.com/t24434348/8f3446e1-f17b-44a4-a56b-d7591b8b9218/image.png?view=open)
 - #### Login
-  ![login-page](https://t24434348.p.clickup-attachments.com/t24434348/9c3bb237-ac38-448b-85d9-fdfbf4862381/image.png)
+  ![login-page](https://t24434348.p.clickup-attachments.com/t24434348/9c3bb237-ac38-448b-85d9-fdfbf4862381/image.png?view=open)
 - #### Search Train
-  ![search-train-page](https://t24434348.p.clickup-attachments.com/t24434348/7b16a9d8-2b22-472f-ac06-d46591dee03e/image.png)
+  ![search-train-page](https://t24434348.p.clickup-attachments.com/t24434348/7b16a9d8-2b22-472f-ac06-d46591dee03e/image.png?view=open)
 - #### Passenger Management
-  ![passenger-management-page](https://t24434348.p.clickup-attachments.com/t24434348/0f6567c6-9f6e-4bb0-89ad-bda65998bb80/image.png)
+  ![passenger-management-page](https://t24434348.p.clickup-attachments.com/t24434348/0f6567c6-9f6e-4bb0-89ad-bda65998bb80/image.png?view=open)
 - #### Book Ticket
 
-  ![book-ticket-page](https://t24434348.p.clickup-attachments.com/t24434348/c5688e59-99c5-41de-a7bf-37b79a14c13c/image.png)
+  ![book-ticket-page](https://t24434348.p.clickup-attachments.com/t24434348/c5688e59-99c5-41de-a7bf-37b79a14c13c/image.png?view=open)
 
-  ![payment-page](https://t24434348.p.clickup-attachments.com/t24434348/b5079680-6acf-4b79-9388-0d62c10d8a99/image.png)
+  ![payment-page](https://t24434348.p.clickup-attachments.com/t24434348/b5079680-6acf-4b79-9388-0d62c10d8a99/image.png?view=open)
 
-  ![payment-success-page](https://t24434348.p.clickup-attachments.com/t24434348/426c568f-7635-4f6e-8ad0-b3665b90e1c7/image.png)
+  ![payment-success-page](https://t24434348.p.clickup-attachments.com/t24434348/426c568f-7635-4f6e-8ad0-b3665b90e1c7/image.png?view=open)
 
-  ![ticket-display-page](https://t24434348.p.clickup-attachments.com/t24434348/0ae8da25-5574-416e-9818-6dec9932d077/image.png)
+  ![ticket-display-page](https://t24434348.p.clickup-attachments.com/t24434348/0ae8da25-5574-416e-9818-6dec9932d077/image.png?view=open)
 
 - #### View Bookings
-  ![user-bookings-page](https://t24434348.p.clickup-attachments.com/t24434348/321f7bf5-6dac-4d93-ac50-180cddbf1fae/image.png)
+  ![user-bookings-page](https://t24434348.p.clickup-attachments.com/t24434348/321f7bf5-6dac-4d93-ac50-180cddbf1fae/image.png?view=open)
 - #### Cancel Booking
-  ![cancel-booking-page](https://t24434348.p.clickup-attachments.com/t24434348/1043de64-0516-4d77-ad64-512151e072c2/image.png)
+  ![cancel-booking-page](https://t24434348.p.clickup-attachments.com/t24434348/1043de64-0516-4d77-ad64-512151e072c2/image.png?view=open)

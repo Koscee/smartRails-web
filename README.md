@@ -37,7 +37,7 @@ Each registered user have a role which represent their level of access to resour
 
 ### Modules Overview
 
-![system-modules](https://t24434348.p.clickup-attachments.com/t24434348/c18a7cd6-1648-4b61-81ca-19f4ed193df7/system%20modules.png?view=open)
+![system-modules](https://t24434348.p.clickup-attachments.com/t24434348/d6ab9377-ec27-457e-a9ca-45ac18a67813/smartRails-modules-overview.png?view=open)
 
 ### Usecase Diagram
 
@@ -45,7 +45,7 @@ Each registered user have a role which represent their level of access to resour
 
 ### Workflow
 
-![system-workflow](https://t24434348.p.clickup-attachments.com/t24434348/c1659ff3-beff-4e4a-a12c-fed49120f941/system%20workflow.png?view=open)
+![system-workflow](https://t24434348.p.clickup-attachments.com/t24434348/35918fdc-ce26-47fc-9c30-eb0d1e827ef7/smartRails-system-workflow.png?view=open)
 
 ## Pages Screenshots
 
